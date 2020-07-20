@@ -1,0 +1,45 @@
+header
+{
+    background-color: #ffffff;
+    height: 12vh;
+    /* height: 130px; */
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    line-height: 12vh;
+    margin: 0 !important;
+}
+
+header #logo
+{
+    position: relative;
+    height: 8vh;
+    margin-top: 2vh;
+}
+
+header .menu
+{
+    display: flex;
+    flex-direction: row;
+}
+
+header .menu .elem
+{
+    margin-left: 25px;
+    margin-right: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+
+    color: #43757D;
+
+    text-transform: uppercase;
+    font-size: 1.1rem;
+
+    transition: .3s all;
+}
+
+header .menu .elem:hover
+{
+    background-color: #f3f3f3;
+}

@@ -1,0 +1,22 @@
+body #content
+{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
+
+body #content .background
+{
+    position: fixed;
+    min-height: 100vh;
+    min-width: 100vw;
+    z-index: -1;
+    opacity: 0;
+    filter: blur(1px) brightness(.9);
+    transition: all 1s;
+}
+
+body #content .background-active 
+{
+    opacity: 1;
+}
