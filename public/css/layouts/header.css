@@ -24,6 +24,11 @@ header .menu
     flex-direction: row;
 }
 
+header .menu-right
+{
+    justify-content: flex-end;
+}
+
 header .menu .elem
 {
     margin-left: 25px;
@@ -35,8 +40,29 @@ header .menu .elem
 
     text-transform: uppercase;
     font-size: 1.1rem;
-
+    
     transition: .3s all;
+}
+
+header .menu-right .elem
+{
+    margin: 0;
+}
+
+header .menu .elem-btn
+{
+    border: 3px solid #43757D;
+    border-radius: 15px;
+    height: 8vh;
+    display: inline-block;
+    margin-top: 2vh;
+    line-height: 7vh;
+}
+
+header .menu .elem-btn:hover
+{
+    background-color: #43757D !important;
+    color: #ffffff;
 }
 
 header .menu .elem:hover
