@@ -43,7 +43,8 @@ header .menu-b
     position: fixed;
     bottom: 0;
     width: 100vw;
-    height: 12vh;
+    height: 10vh;
+    line-height: 10vh;
     background-color: #43757D;
     justify-content: center;
     transition: .3s all;
@@ -67,6 +68,11 @@ header .menu .elem
     font-size: 1.1rem;
     
     transition: .3s all;
+}
+
+header .menu-m .elem
+{
+    font-size: .9rem;
 }
 
 header .menu-b .elem
