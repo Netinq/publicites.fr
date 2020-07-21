@@ -1,20 +1,24 @@
+:root
+{
+    --menu-height: 12vh;
+}
 header
 {
     background-color: #ffffff;
-    height: 12vh;
+    height: var(--menu-height);
     /* height: 130px; */
     width: 100vw;
     position: fixed;
     top: 0;
     left: 0;
-    line-height: 12vh;
+    line-height: var(--menu-height);
     margin: 0 !important;
 }
 
 header #logo
 {
     position: relative;
-    height: 8vh;
+    height: calc(var(--menu-height) - 4vh);
     margin-top: 2vh;
 }
 
@@ -27,6 +31,27 @@ header .menu
 header .menu-right
 {
     justify-content: flex-end;
+}
+
+header .menu-m
+{
+    justify-content: space-between;
+}
+
+header .menu-b
+{
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 12vh;
+    background-color: #43757D;
+    justify-content: center;
+    transition: .3s all;
+}
+
+header .menu-b:hover
+{
+    background-color: #547a80;
 }
 
 header .menu .elem
@@ -44,6 +69,11 @@ header .menu .elem
     transition: .3s all;
 }
 
+header .menu-b .elem
+{
+    color: #ffffff;
+}
+
 header .menu-right .elem
 {
     margin: 0;
@@ -51,12 +81,12 @@ header .menu-right .elem
 
 header .menu .elem-btn
 {
-    border: 3px solid #43757D;
+    border: 2px solid #43757D;
     border-radius: 15px;
-    height: 8vh;
+    height: calc(var(--menu-height) - 4vh);
     display: inline-block;
     margin-top: 2vh;
-    line-height: 7vh;
+    line-height: calc(var(--menu-height) - 4vh);
 }
 
 header .menu .elem-btn:hover
@@ -68,4 +98,9 @@ header .menu .elem-btn:hover
 header .menu .elem:hover
 {
     background-color: #f3f3f3;
+}
+
+header .menu-b .elem:hover
+{
+    background: none !important;
 }
