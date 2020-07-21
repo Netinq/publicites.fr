@@ -51,6 +51,11 @@ header .menu-b
     transition: .3s all;
 }
 
+header .menu-m #logo
+{
+    margin-top: 0;
+}
+
 header .menu-b:hover
 {
     background-color: #547a80;

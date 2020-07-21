@@ -14,7 +14,9 @@
         </a>
     </div>
     <div class="col-12 menu menu-m d-md-none">
-        <img id="logo" alt="Website logo" src="{{asset('images/logo.png')}}">
+        <a href="{{route('home')}}">
+            <img id="logo" alt="Website logo" src="{{asset('images/logo.png')}}">
+        </a>
         <a href="#">
             <div class="elem">devenir annonceur</div>
         </a>
