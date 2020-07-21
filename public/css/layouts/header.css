@@ -13,7 +13,7 @@ header
     left: 0;
     line-height: var(--menu-height);
     margin: 0 !important;
-    opacity: .8;
+    opacity: .9;
 }
 
 header #logo
@@ -44,8 +44,8 @@ header .menu-b
     position: fixed;
     bottom: 0;
     width: 100vw;
-    height: 10vh;
-    line-height: 10vh;
+    height: 8vh;
+    line-height: 8vh;
     background-color: #43757D;
     justify-content: center;
     transition: .3s all;
