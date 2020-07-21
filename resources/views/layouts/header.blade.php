@@ -21,7 +21,7 @@
     </div>
     <div class="col-12 menu menu-b d-md-none">
         <a href="#">
-            <div class="elem">connexion</div>
+            <div class="elem">me connecter</div>
         </a>
     </div>
 </header>
