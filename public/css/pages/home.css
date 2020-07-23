@@ -106,7 +106,7 @@ body #content #text
     align-items: center;
 }
 
-@media screen and (max-width: 767px) { body #content #text { height: 40vh; line-height: 40vh; } }
+@media screen and (max-width: 767px) { body #content #text { height: 40vh; line-height: 40vh; justify-content: start; padding-top: 50px; } }
 
 body #content #text #find-text
 {
