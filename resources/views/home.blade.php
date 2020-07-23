@@ -87,7 +87,7 @@
 </div>
 <footer>
     <div class="elem d-none d-md-inline-block">tous droits réservés</div>
-    <a href="#">
+    <a href="{{route('legal')}}">
         <div class="elem">cgv - mentions légales</div>
     </a>
 </footer>
