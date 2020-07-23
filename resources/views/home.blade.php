@@ -80,7 +80,7 @@
         </div>
         <div id="facebook">
             <a href="https://www.facebook.com/sharer/sharer.php?u=publicites.fr">
-                <img id="facebook-logo" src="{{asset('images/svg/facebook.svg')}}"><span class="d-none d-md-inline">partager</span>
+                <img id="facebook-logo" src="{{asset('images/svg/facebook.svg')}}"><span class="d-none d-md-inline">partagez</span>
             </a>
         </div>
     </div>
