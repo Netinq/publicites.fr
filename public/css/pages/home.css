@@ -216,10 +216,12 @@ body #content #facebook
 @media screen and (max-width: 767px){
     body #content #facebook 
     { 
-        width: 45px; 
-        position: absolute;
+        width: 65px; 
+        line-height: 65px;
+        height: 65px; 
+        position: fixed;
         right: 25px;
-        bottom: calc(8vh + 15px);
+        bottom: calc(8vh + 5px);
     }
 }
     
