@@ -87,7 +87,7 @@ body #content #regions svg
     max-width: calc(100% - 5vw);
 }
 
-@media screen and (max-width: 767px) { body #content #regions { height: 60vh; line-height: 60vh; } body #content #regions svg { margin-top: 10vh; } }
+@media screen and (max-width: 767px) { body #content #regions { height: 60vh; line-height: 60vh; } body #content #regions svg { margin-top: 5vh; } }
 
 body #content #regions svg > a path:hover
 {
