@@ -2,6 +2,15 @@
 {
     --menu-height: 12vh;
 }
+
+@media screen and (min-width: 1500px)
+{
+    :root
+    {
+        --menu-height: 10vh;
+    }
+}
+
 header
 {
     background-color: #ffffff;
@@ -14,6 +23,7 @@ header
     line-height: var(--menu-height);
     margin: 0 !important;
     opacity: .9;
+    z-index: 10000;
 }
 
 header #logo
