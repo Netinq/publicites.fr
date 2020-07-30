@@ -58,6 +58,7 @@
 
         <!-- STATIC Stylesheet -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/layouts/header.css') }}">
+        <script src="{{asset('js/app.js')}}"></script>
 
         @hasSection('noMaster') @else
             <link rel="stylesheet" type="text/css" href="{{ asset('css/master.css') }}">
@@ -87,23 +88,10 @@
         @endforeach
     @endif
     <script>
-        $(document).ready(function () {
-  'use strict';
-  
-  var orientationChange = function () {
-    var $element = $('.selector');
-    $element.css('height', '100vh'); // Change this to your own original vh value.
-    $element.css('height', $element.height() + 'px');
-  };
-
-  var s = screen;
-  var o = s.orientation || s.msOrientation || s.mozOrientation;
-  o.addEventListener('change', function () {
-    setTimeout(function () {
-      orientationChange();
-    }, 250);
-  }, false);
-  orientationChange();
-});
+        $(window).resize(function() {
+        var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        $("html, body").css({"width":w,"height":h});
+        });
     </script>
 </html>
