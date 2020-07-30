@@ -86,4 +86,24 @@
         <script src="{{ asset('js/'.$script.'.js') }}"> </script>
         @endforeach
     @endif
+    <script>
+        $(document).ready(function () {
+  'use strict';
+  
+  var orientationChange = function () {
+    var $element = $('.selector');
+    $element.css('height', '100vh'); // Change this to your own original vh value.
+    $element.css('height', $element.height() + 'px');
+  };
+
+  var s = screen;
+  var o = s.orientation || s.msOrientation || s.mozOrientation;
+  o.addEventListener('change', function () {
+    setTimeout(function () {
+      orientationChange();
+    }, 250);
+  }, false);
+  orientationChange();
+});
+    </script>
 </html>
