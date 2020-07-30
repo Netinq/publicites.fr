@@ -88,10 +88,6 @@
         @endforeach
     @endif
     <script>
-        $(window).resize(function() {
-        var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-        var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-        $("html, body").css({"width":w,"height":h});
-        });
+        $('#input_92_31').attr('readonly','readonly');
     </script>
 </html>
