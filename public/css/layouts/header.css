@@ -33,6 +33,12 @@ header
     opacity: .9;
     z-index: 10000;
 }
+@media screen and (max-width: 768px)
+{
+    header {
+        border-bottom-right-radius: 35px;
+    }
+}
 
 header #logo
 {
