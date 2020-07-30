@@ -73,22 +73,36 @@
             href="{{ asset('css/'.$style.'.css') }}">
             @endforeach
         @endif
-        <script>$(function() {
-            var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-            var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-            $("html, body").css({"width":w,"height":h});
-        });</script>
+        <script>function setDocHeight() {
+document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);
+};
+
+window.addEventListener('resize', function () {
+setDocHeight();
+});
+window.addEventListener('orientationchange', function () {
+setDocHeight();
+});
+
+setDocHeight();</script>
 
     </head>
 
     @include('layouts.header')
     
     <body class="row">
-        <script>$(function() {
-            var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-            var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-            $("html, body").css({"width":w,"height":h});
-        });</script>
+        <script>function setDocHeight() {
+document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);
+};
+
+window.addEventListener('resize', function () {
+setDocHeight();
+});
+window.addEventListener('orientationchange', function () {
+setDocHeight();
+});
+
+setDocHeight();</script>
         @yield('content')
     </body>
 
