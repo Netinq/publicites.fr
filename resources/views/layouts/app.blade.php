@@ -87,10 +87,4 @@
         <script src="{{ asset('js/'.$script.'.js') }}"> </script>
         @endforeach
     @endif
-    <script>$(document).ready(function() {
-        /* ... */
-        var windowHeight = $(window).innerHeight();
-        $('body').css({'height':windowHeight});
-        /* ... */
-    });</script>
 </html>
