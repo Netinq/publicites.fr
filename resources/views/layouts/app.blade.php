@@ -5,7 +5,7 @@
     <head>
         <!-- Default meta -->
         <meta charset='utf-8'>
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     
         <meta name='author' content='Quentin Sar, Netinq'>
         <meta name='owner' content='Gregory Gasser'>
@@ -54,7 +54,7 @@
             @else Communiquez à vie sur Publicites.fr @endif
         </title>
 
-        <meta http-equiv="content-language" content="en">
+        <meta http-equiv="content-language" content="fr">
 
         <!-- STATIC Stylesheet -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/layouts/header.css') }}">
@@ -87,9 +87,4 @@
         <script src="{{ asset('js/'.$script.'.js') }}"> </script>
         @endforeach
     @endif
-    <script>
-         document.documentElement.style.setProperty(‘overflow’, ‘auto’)
- const metaViewport = document.querySelector(‘meta[name=viewport]’)
- metaViewport.setAttribute(‘content’, ‘height=’ + initialHeight + ‘px, width=device-width, initial-scale=1.0’)
-    </script>
 </html>
