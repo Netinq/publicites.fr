@@ -73,27 +73,12 @@
             href="{{ asset('css/'.$style.'.css') }}">
             @endforeach
         @endif
-        <script>function setDocHeight() {
-            document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);};
-        window.addEventListener('resize', function () {
-            setDocHeight();
-        });setDocHeight();</script>
     </head>
 
     @include('layouts.header')
     
     <body class="row">
-        <script>function setDocHeight() {
-            document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);};
-        window.addEventListener('resize', function () {
-            setDocHeight();
-        });setDocHeight();</script>
         @yield('content')
-        <script>function setDocHeight() {
-            document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);};
-        window.addEventListener('resize', function () {
-            setDocHeight();
-        });setDocHeight();</script>
     </body>
 
     @if($scripts ?? null)
