@@ -4,8 +4,8 @@
 <html lang="fr">
     <head>
         <!-- Default meta -->
-        <meta charset='utf-8'>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     
         <meta name='author' content='Quentin Sar, Netinq'>
         <meta name='owner' content='Gregory Gasser'>
@@ -73,12 +73,22 @@
             href="{{ asset('css/'.$style.'.css') }}">
             @endforeach
         @endif
+        <script>$(function() {
+            var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+            var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            $("html, body").css({"width":w,"height":h});
+        });</script>
 
     </head>
 
     @include('layouts.header')
     
     <body class="row">
+        <script>$(function() {
+            var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+            var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            $("html, body").css({"width":w,"height":h});
+        });</script>
         @yield('content')
     </body>
 
@@ -87,4 +97,9 @@
         <script src="{{ asset('js/'.$script.'.js') }}"> </script>
         @endforeach
     @endif
+    <script>$(function() {
+        var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        $("html, body").css({"width":w,"height":h});
+    });</script>
 </html>
