@@ -11,7 +11,6 @@
     display: flex;
     vertical-align: middle;
     align-items:center;
-    justify-content: center;
     flex-direction: column;
     height: calc(100vh - var(--menu-height));
     margin-top: var(--menu-height);
