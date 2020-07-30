@@ -67,8 +67,8 @@ header .menu-b
     position: fixed;
     bottom: 0;
     width: 100vw;
-    height: 10vh;
-    line-height: 10vh;
+    height: var(--menu-height);
+    line-height: var(--menu-height);
     background-color: #ffffff;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
@@ -163,9 +163,9 @@ header .menu .elem-btn-secondary:hover
 }
 header .menu-b .elem-btn-secondary
 {
-    height: calc(var(--menu-height) - 4vh);
+    height: calc(var(--menu-height) - 15px);
     display: block;
-    line-height: calc(var(--menu-height) - 4vh);
+    line-height: calc(var(--menu-height) - 15px);
     background-color: #E7F2F3;
     color: #43757D;
     border-radius: 25px;
@@ -187,9 +187,9 @@ header .menu-b .elem-btn-secondary:hover
 header .menu-b #facebook
 {
     background-color: #3B5998;
-    height: calc(var(--menu-height) - 4vh);
-    line-height: calc(var(--menu-height) - 4vh);
-    width: calc(var(--menu-height) - 4vh);
+    height: calc(var(--menu-height) - 15px);
+    line-height: calc(var(--menu-height) - 15px);
+    width: calc(var(--menu-height) - 15px);
     border-radius: 25px;
     margin-left: 7.5px;
     margin-right: 7.5px;
@@ -197,9 +197,9 @@ header .menu-b #facebook
 }
 header .menu-b .elem-btn-home
 {
-    height: calc(var(--menu-height) - 4vh);
-    line-height: calc(var(--menu-height) - 4vh);
-    width: calc(var(--menu-height) - 4vh);
+    height: calc(var(--menu-height) - 15px);
+    line-height: calc(var(--menu-height) - 15px);
+    width: calc(var(--menu-height) - 15px);
     border-radius: 25px;
     margin-left: 7.5px;
     margin-right: 7.5px;
