@@ -74,36 +74,26 @@
             @endforeach
         @endif
         <script>function setDocHeight() {
-document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);
-};
-
-window.addEventListener('resize', function () {
-setDocHeight();
-});
-window.addEventListener('orientationchange', function () {
-setDocHeight();
-});
-
-setDocHeight();</script>
-
+            document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);};
+        window.addEventListener('resize', function () {
+            setDocHeight();
+        });setDocHeight();</script>
     </head>
 
     @include('layouts.header')
     
     <body class="row">
         <script>function setDocHeight() {
-document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);
-};
-
-window.addEventListener('resize', function () {
-setDocHeight();
-});
-window.addEventListener('orientationchange', function () {
-setDocHeight();
-});
-
-setDocHeight();</script>
+            document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);};
+        window.addEventListener('resize', function () {
+            setDocHeight();
+        });setDocHeight();</script>
         @yield('content')
+        <script>function setDocHeight() {
+            document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);};
+        window.addEventListener('resize', function () {
+            setDocHeight();
+        });setDocHeight();</script>
     </body>
 
     @if($scripts ?? null)
@@ -111,9 +101,9 @@ setDocHeight();</script>
         <script src="{{ asset('js/'.$script.'.js') }}"> </script>
         @endforeach
     @endif
-    <script>$(function() {
-        var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-        var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-        $("html, body").css({"width":w,"height":h});
-    });</script>
+    <script>function setDocHeight() {
+        document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);};
+    window.addEventListener('resize', function () {
+        setDocHeight();
+    });setDocHeight();</script>
 </html>
