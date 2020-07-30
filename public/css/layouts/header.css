@@ -7,6 +7,14 @@
 {
     :root
     {
+        --menu-height: 8vh;
+    }
+}
+
+@media screen and (max-width: 768px)
+{
+    :root
+    {
         --menu-height: 10vh;
     }
 }
@@ -53,11 +61,17 @@ header .menu-b
     position: fixed;
     bottom: 0;
     width: 100vw;
-    height: 8vh;
-    line-height: 8vh;
-    background-color: #43757D;
+    height: 10vh;
+    line-height: 10vh;
+    background-color: #ffffff;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
     justify-content: center;
     transition: .3s all;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    
 }
 
 header .menu-m #logo
@@ -65,15 +79,10 @@ header .menu-m #logo
     margin-top: 0;
 }
 
-header .menu-b:hover
-{
-    background-color: #547a80;
-}
-
 header .menu .elem
 {
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-left: 15px;
+    margin-right: 15px;
     padding-left: 25px;
     padding-right: 25px;
 
@@ -90,38 +99,113 @@ header .menu-m .elem
     font-size: .9rem;
 }
 
-header .menu-b .elem
+header .menu .elem-btn-primary
 {
-    color: #ffffff;
-}
-
-header .menu-right .elem
-{
-    margin: 0;
-}
-
-header .menu .elem-btn
-{
-    border: 2px solid #43757D;
     border-radius: 15px;
     height: calc(var(--menu-height) - 4vh);
     display: inline-block;
     margin-top: 2vh;
     line-height: calc(var(--menu-height) - 4vh);
-}
-
-header .menu .elem-btn:hover
-{
-    background-color: #43757D !important;
+    background-color: #9ED4DC;
     color: #ffffff;
+    border-radius: 35px;
+    box-shadow: rgb(158, 212, 220) 0 0 6px;
+    overflow: hidden;
+    position: relative;
 }
 
-header .menu .elem:hover
+header .menu .elem-btn-primary::before
 {
-    background-color: #f3f3f3;
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(151deg, rgba(104,183,195,1) 0%, rgba(141,135,214,1) 99%);
+    height: 100%;
+    width: 100%;
+    z-index: -1;
 }
 
-header .menu-b .elem:hover
+header .menu .elem-btn-primary:hover
 {
-    background: none !important;
+    background: none;
+}
+
+header .menu .elem-btn-secondary
+{
+    border-radius: 15px;
+    height: calc(var(--menu-height) - 4vh);
+    display: inline-block;
+    margin-top: 2vh;
+    line-height: calc(var(--menu-height) - 4vh);
+    background-color: #E7F2F3;
+    color: #43757D;
+    border-radius: 35px;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+}
+
+header .menu .elem-btn-home img
+{
+    height: 3vh;
+}
+
+header .menu .elem-btn-secondary:hover
+{
+    box-shadow: #D2D2D2 0 0 6px;
+}
+header .menu-b .elem-btn-secondary
+{
+    height: calc(var(--menu-height) - 4vh);
+    display: block;
+    line-height: calc(var(--menu-height) - 4vh);
+    background-color: #E7F2F3;
+    color: #43757D;
+    border-radius: 25px;
+    width: calc(75vw - 50px);
+    text-align: center;
+    margin-left: 15px;
+    margin-right: 15px;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header .menu-b .elem-btn-secondary:hover
+{
+    box-shadow: #D2D2D2 0 0 6px;
+}
+
+header .menu-b #facebook
+{
+    background-color: #3B5998;
+    height: calc(var(--menu-height) - 4vh);
+    line-height: calc(var(--menu-height) - 4vh);
+    width: calc(var(--menu-height) - 4vh);
+    border-radius: 25px;
+    margin-left: 7.5px;
+    margin-right: 7.5px;
+    text-align: center;
+}
+header .menu-b .elem-btn-home
+{
+    height: calc(var(--menu-height) - 4vh);
+    line-height: calc(var(--menu-height) - 4vh);
+    width: calc(var(--menu-height) - 4vh);
+    border-radius: 25px;
+    margin-left: 7.5px;
+    margin-right: 7.5px;
+    text-align: center;
+    align-items: center;
+    padding: 0;
+}
+header .menu-b .elem-btn-home img
+{
+    height: 20px;
+}
+header .menu-b #facebook #facebook-logo
+{
+    height: 20px;
 }

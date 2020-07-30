@@ -57,7 +57,7 @@ footer .elem
 {
     footer 
     {
-        bottom: 8vh;
+        bottom: 10vh;
         justify-content: center;
     }
 }
@@ -112,7 +112,7 @@ body #content #text #find-text
 {
     text-align: center;
     height: auto;
-    background-color: rgba(67, 117, 125, 0.5);
+    /* background-color: rgba(67, 117, 125, 0.5); */
     border-radius: 15px;
     color: #ffffff;
     text-align: center;
@@ -133,7 +133,7 @@ body #content #text #find-text h1
 
 body #content #text #find-text h2
 {
-    font-size: 1.7rem;
+    font-size: 2rem;
     margin-top: 0px;
     margin-bottom: 15px;
 }
@@ -207,7 +207,8 @@ body #content #facebook
     line-height: 45px;
     width: 30%;
     margin-top: 25px;
-    border-radius: 15px;
+    border-radius: 35px;
+    box-shadow: #3B5998 0 0 6px;
 }
 
 @media screen and (max-width: 1199px){body #content #facebook { width: 35%; }}

@@ -53,7 +53,7 @@
                         </div>
                         <div class="col-6 button"id="create">
                             <a href="{{route('register')}}">
-                            Je n'ai pas de compte
+                            Pas de compte ?
                             </a>
                         </div>
                     </div>

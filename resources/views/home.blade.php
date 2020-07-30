@@ -78,7 +78,7 @@
             <img id="ping" src="{{asset('images/svg/ping.svg')}}">
             <span>près de chez vous</span>
         </div>
-        <div id="facebook">
+        <div id="facebook" class="d-none d-md-block">
             <a href="https://www.facebook.com/sharer/sharer.php?u=publicites.fr">
                 <img id="facebook-logo" src="{{asset('images/svg/facebook.svg')}}"><span class="d-none d-md-inline">partagez</span>
             </a>

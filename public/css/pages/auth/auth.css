@@ -13,6 +13,8 @@
     align-items:center;
     justify-content: center;
     flex-direction: column;
+    height: calc(100vh - var(--menu-height));
+    margin-top: var(--menu-height);
 }
 
 body .content .content-logo
@@ -36,7 +38,6 @@ body .content #box
     line-height: 1;
     padding: 25px;
     padding-top: 50px;
-    padding-bottom: 50px;
 }
 
 @media screen and (max-width: 576px)
@@ -107,6 +108,7 @@ body .content #box form button[type=submit]
     font-size: 0.8rem;
     font-weight: bold;
     font-family: Arial, sans-serif;
+    border-radius: 25px;
 }
 
 body .content #box form #create
@@ -116,6 +118,9 @@ body .content #box form #create
     display:flex;
     flex-direction: column;
     justify-content: center;
+    background-color: #E7F2F3;
+    color: #43757D;
+    border-radius: 25px;
 }
 
 body .content #box form .button
@@ -139,6 +144,5 @@ body .content #box form .button
 
 body .content #box form #create a
 {
-    color: #1b1b1b;
-    text-decoration: underline;
+    color: #43757D;
 }

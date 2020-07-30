@@ -57,12 +57,12 @@
                     <div class="col-10 col-md-8 row">
                         <div class="col-6 button" style="padding: 0;">
                             <button type="submit" class="btn">
-                                me connecter
+                                m'inscrire
                             </button>
                         </div>
                         <div class="col-6 button"id="create">
                             <a href="{{route('login')}}">
-                            J'ai déjà un compte
+                            Déjà un compte ?
                             </a>
                         </div>
                     </div>
