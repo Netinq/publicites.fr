@@ -74,30 +74,12 @@
             href="{{ asset('css/'.$style.'.css') }}">
             @endforeach
         @endif
-        <script>$(document).ready(function() {
-            /* ... */
-            var windowHeight = $(window).innerHeight();
-            $('body').css({'height':windowHeight});
-            /* ... */
-        });</script>
     </head>
 
     @include('layouts.header')
     
     <body class="row">
-        <script>$(document).ready(function() {
-            /* ... */
-            var windowHeight = $(window).innerHeight();
-            $('body').css({'height':windowHeight});
-            /* ... */
-        });</script>
         @yield('content')
-        <script>$(document).ready(function() {
-            /* ... */
-            var windowHeight = $(window).innerHeight();
-            $('body').css({'height':windowHeight});
-            /* ... */
-        });</script>
     </body>
 
     @if($scripts ?? null)
