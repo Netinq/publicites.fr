@@ -7,7 +7,9 @@
     </div>
     <div class="col-md-8 menu menu-right d-none d-md-flex">
         <a href="#"><div class="elem elem-btn-primary">devenir annonceur</div></a>
-        <a href="{{route('login')}}"><div class="elem elem-btn-secondary">me connecter</div></a>
+        <a href="{{ Auth::check() ? route('user.index') : route('login')}}">
+            <div class="elem elem-btn-secondary">@if (!Auth::check())me connecter @else mon compte @endif</div>
+        </a>
     </div>
     <div class="col-12 menu menu-m d-md-none">
         <a href="{{route('home')}}"><img id="logo" alt="Website logo" src="{{asset('images/logo.png')}}"></a>
@@ -22,6 +24,6 @@
         <a href="{{route('home')}}">
             <div class="elem elem-btn-secondary elem-btn-home"><img src="{{asset('images/svg/home.svg')}}"></div>
         </a>
-        <a href="{{route('login')}}"><div class="elem elem-btn-secondary">me connecter</div></a>
+        <a href="{{ Auth::check() ? route('user.index') : route('login')}}"><div class="elem elem-btn-secondary">@if (!Auth::check())me connecter @else mon compte @endif</div></a>
     </div>
 </header>

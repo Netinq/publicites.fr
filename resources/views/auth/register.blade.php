@@ -44,7 +44,7 @@
                         @enderror
                     </div>
                     <div class="col-10 col-md-8">
-                        <label for="password-confirm" class="col-form-label">Mot de passe</label>
+                        <label for="password-confirm" class="col-form-label">Confirmation mot de passe</label>
                         <input id="password-confirm" type="password" class="form-control @error('password-confirm') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password">
                         @error('password-confirm')
                             <span class="invalid-feedback" role="alert">

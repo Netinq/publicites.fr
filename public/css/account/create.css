@@ -1,0 +1,28 @@
+.content-box
+{
+    display: flex;
+    vertical-align: middle;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+    height: calc(100vh);
+    margin-top: 0;
+    background-color: #ffffff;
+}
+
+body .content #box .form-group
+{
+    flex-direction: row;
+}
+
+body .content #box form button[type=submit]
+{
+    background-color: #9ED4DC;
+    color: #ffffff;
+    margin: 0;
+    display: block !important;
+    font-size: 0.8rem;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    margin-bottom: 12vh;
+}
