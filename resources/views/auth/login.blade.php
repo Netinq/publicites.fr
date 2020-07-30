@@ -1,72 +1,64 @@
-@extends('layouts.app')
+@extends('layouts.app', ['styles' => ['pages/auth/auth', 'background-image'], 'scripts' => ['background-image']])
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
+<div id="content-image" class="d-none d-sm-block">
+    <img class="background background-active" src="{{asset('images/departements/auvergne-rhone-alpes.jpg')}}">
+    <img class="background" src="{{asset('images/departements/bourgogne-franche-compte.jpg')}}">
+    <img class="background" src="{{asset('images/departements/centre-val-de-loire.jpg')}}">
+    <img class="background" src="{{asset('images/departements/corse.jpg')}}">
+    <img class="background" src="{{asset('images/departements/ile-de-france.jpg')}}">
+    <img class="background" src="{{asset('images/departements/normandie.jpg')}}">
+    <img class="background" src="{{asset('images/departements/nouvelle-aquitaine.jpg')}}">
+    <img class="background" src="{{asset('images/departements/occitanie.jpg')}}">
+    <img class="background" src="{{asset('images/departements/pays-de-la-loire.jpg')}}">
+    <img class="background" src="{{asset('images/departements/provence-alpes-cote-d-azur.jpg')}}">
+    <div id="mask"></div>
+</div>
+<div class="content row">
+    <div class="d-none d-lg-block col-lg-5 col-xl-7 content-logo">
+        <img id="logo" src="{{asset('images/logo.png')}}">
+    </div>
+    <div class="offset-sm-1 offset-md-2 offset-lg-0 col-sm-10 col-md-8 col-lg-6 col-xl-4 content-box" style="padding: 0;">
+        <div id="box">
+            <h1>connexion</h1>
+            <h2>accédez à votre compte</h2>
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <div class="form-group row">
+                    <div class="col-10 col-md-8">
+                        <label for="email" class="col-form-label">E-mail</label>
+                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" required autocomplete="current-email">
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="col-10 col-md-8">
+                        <label for="password" class="col-form-label">Mot de passe</label>
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
                 </div>
-            </div>
+                <div class="form-group row">
+                    <div class="col-10 col-md-8 row">
+                        <div class="col-6 button" style="padding: 0;">
+                            <button type="submit" class="btn">
+                                me connecter
+                            </button>
+                        </div>
+                        <div class="col-6 button"id="create">
+                            <a href="{{route('register')}}">
+                            Je n'ai pas de compte
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
