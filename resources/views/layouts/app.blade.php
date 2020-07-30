@@ -59,6 +59,7 @@
         <!-- STATIC Stylesheet -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/layouts/header.css') }}">
         <script src="{{asset('js/app.js')}}"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
         @hasSection('noMaster') @else
             <link rel="stylesheet" type="text/css" href="{{ asset('css/master.css') }}">
@@ -73,12 +74,30 @@
             href="{{ asset('css/'.$style.'.css') }}">
             @endforeach
         @endif
+        <script>$(document).ready(function() {
+            /* ... */
+            var windowHeight = $(window).innerHeight();
+            $('body').css({'height':windowHeight});
+            /* ... */
+        });</script>
     </head>
 
     @include('layouts.header')
     
     <body class="row">
+        <script>$(document).ready(function() {
+            /* ... */
+            var windowHeight = $(window).innerHeight();
+            $('body').css({'height':windowHeight});
+            /* ... */
+        });</script>
         @yield('content')
+        <script>$(document).ready(function() {
+            /* ... */
+            var windowHeight = $(window).innerHeight();
+            $('body').css({'height':windowHeight});
+            /* ... */
+        });</script>
     </body>
 
     @if($scripts ?? null)
@@ -86,9 +105,10 @@
         <script src="{{ asset('js/'.$script.'.js') }}"> </script>
         @endforeach
     @endif
-    <script>function setDocHeight() {
-        document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);};
-    window.addEventListener('resize', function () {
-        setDocHeight();
-    });setDocHeight();</script>
+    <script>$(document).ready(function() {
+        /* ... */
+        var windowHeight = $(window).innerHeight();
+        $('body').css({'height':windowHeight});
+        /* ... */
+    });</script>
 </html>

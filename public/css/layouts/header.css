@@ -15,9 +15,7 @@
 {
     :root
     {
-        --menu-height: 10%;
         --menu-height: 10vh;
-        --menu-height: calc(var(--vh, 1vh) * 10);
     }
 }
 
