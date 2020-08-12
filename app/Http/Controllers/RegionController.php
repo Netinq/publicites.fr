@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Region;
 use Illuminate\Http\Request;
+use App\Departement;
 
 class RegionController extends Controller
 {
@@ -44,9 +45,10 @@ class RegionController extends Controller
      * @param  \App\Region  $region
      * @return \Illuminate\Http\Response
      */
-    public function show(Region $region)
+    public function show($region)
     {
-        //
+        $departements = Departement::where('region_id', $region)->get();
+        return view('regions.index', compact('departements'));
     }
 
     /**

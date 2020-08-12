@@ -15,11 +15,11 @@ class CreateDepartementsTable extends Migration
     {
         Schema::create('departements', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('region_id')->nullable()->unsigned();
+            $table->string('region_id')->nullable();
             $table->string('name');
             $table->string('identifier')->index();
 
-            $table->foreign('region_id')->references('id')->on('regions')->onDelete('set null');
+            $table->foreign('region_id')->references('identifier')->on('regions')->onDelete('set null');
         });
     }
 

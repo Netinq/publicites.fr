@@ -44,9 +44,9 @@ class DepartementController extends Controller
      * @param  \App\Departement  $departement
      * @return \Illuminate\Http\Response
      */
-    public function show(Departement $departement)
+    public function show($departement)
     {
-        //
+        return view('departements.index');
     }
 
     /**

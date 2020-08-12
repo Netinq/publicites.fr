@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Departement;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,5 +15,11 @@ class HomeController extends Controller
     public function legal()
     {
         return view('legal');
+    }
+
+    public function regions($id)
+    {
+        $departements = Departement::where('region_id', $id)->get();
+        return view('regions.index', compact('departements'));
     }
 }

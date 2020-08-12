@@ -12,8 +12,7 @@ class DepartementsSeeder extends Seeder
      */
     public function run()
     {
-        Departement::firstOrCreate(['region_id' => 1, 'name' => 'empty','identifier' => 'empty']);
-        Departement::firstOrCreate(['region_id' => 1, 'name' => 'empty','identifier' => 'empty']);
-        Departement::firstOrCreate(['region_id' => 1, 'name' => 'empty','identifier' => 'empty']);
+        Departement::firstOrCreate(['region_id' => 'corse', 'name' => 'Corse-du-Sud','identifier' => '2A']);
+        Departement::firstOrCreate(['region_id' => 'corse', 'name' => 'Haute-Corse','identifier' => '2B']);
     }
 }

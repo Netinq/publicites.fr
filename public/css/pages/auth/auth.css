@@ -13,7 +13,7 @@
     align-items:center;
     flex-direction: column;
     height: calc(100vh - var(--menu-height));
-    margin-top: var(--menu-height);
+    margin-top: calc(var(--menu-height) + 20px);
 }
 
 body .content .content-logo

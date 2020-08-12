@@ -39,6 +39,7 @@ header
 {
     header {
         border-bottom-right-radius: 35px;
+        border-top-right-radius: 35px;
     }
 }
 
@@ -71,7 +72,7 @@ header .menu-b
     width: 100vw;
     height: var(--menu-height);
     line-height: var(--menu-height);
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     justify-content: center;

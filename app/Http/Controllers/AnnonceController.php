@@ -7,11 +7,6 @@ use Illuminate\Http\Request;
 
 class AnnonceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         //
@@ -35,7 +30,12 @@ class AnnonceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'departement_id ' => 'required',
+            'title' => 'required|max:200|string',
+            'description' => 'required|text',
+            'link' => 'required|text',
+        ]);
     }
 
     /**

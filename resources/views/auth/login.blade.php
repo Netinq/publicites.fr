@@ -2,16 +2,16 @@
 
 @section('content')
 <div id="content-image" class="d-none d-sm-block">
-    <img class="background background-active" src="{{asset('images/departements/auvergne-rhone-alpes.jpg')}}">
-    <img class="background" src="{{asset('images/departements/bourgogne-franche-compte.jpg')}}">
-    <img class="background" src="{{asset('images/departements/centre-val-de-loire.jpg')}}">
-    <img class="background" src="{{asset('images/departements/corse.jpg')}}">
-    <img class="background" src="{{asset('images/departements/ile-de-france.jpg')}}">
-    <img class="background" src="{{asset('images/departements/normandie.jpg')}}">
-    <img class="background" src="{{asset('images/departements/nouvelle-aquitaine.jpg')}}">
-    <img class="background" src="{{asset('images/departements/occitanie.jpg')}}">
-    <img class="background" src="{{asset('images/departements/pays-de-la-loire.jpg')}}">
-    <img class="background" src="{{asset('images/departements/provence-alpes-cote-d-azur.jpg')}}">
+    <img class="background background-active" src="{{asset('images/regions/auvergne-rhone-alpes.jpg')}}">
+    <img class="background" src="{{asset('images/regions/bourgogne-franche-compte.jpg')}}">
+    <img class="background" src="{{asset('images/regions/centre-val-de-loire.jpg')}}">
+    <img class="background" src="{{asset('images/regions/corse.jpg')}}">
+    <img class="background" src="{{asset('images/regions/ile-de-france.jpg')}}">
+    <img class="background" src="{{asset('images/regions/normandie.jpg')}}">
+    <img class="background" src="{{asset('images/regions/nouvelle-aquitaine.jpg')}}">
+    <img class="background" src="{{asset('images/regions/occitanie.jpg')}}">
+    <img class="background" src="{{asset('images/regions/pays-de-la-loire.jpg')}}">
+    <img class="background" src="{{asset('images/regions/provence-alpes-cote-d-azur.jpg')}}">
     <div id="mask"></div>
 </div>
 <div class="content row">
@@ -48,7 +48,7 @@
                     <div class="col-10 col-md-8 row">
                         <div class="col-6 button" style="padding: 0;">
                             <button type="submit" class="btn">
-                                me connecter
+                                Me connecter
                             </button>
                         </div>
                         <div class="col-6 button"id="create">
