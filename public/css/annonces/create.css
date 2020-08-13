@@ -1,0 +1,28 @@
+body .create-content
+{
+    position: absolute;
+    top: var(--menu-height);
+    min-height: calc(100vh - var(--menu-height));
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+body .content #box h1
+{
+    text-transform: uppercase;
+    color: #9ED4DC;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 0;
+    line-height: 1;
+}
+
+body .content #box h2
+{
+    color: #43757D;
+    font-size: 1.4rem;
+    margin: 0;
+    line-height: 1;
+}

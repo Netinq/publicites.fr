@@ -22,4 +22,9 @@ class HomeController extends Controller
         $departements = Departement::where('region_id', $id)->get();
         return view('regions.index', compact('departements'));
     }
+
+    public function become_advertiser()
+    {
+        return view('account.become_advertiser');
+    }
 }

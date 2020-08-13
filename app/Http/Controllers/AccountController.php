@@ -10,8 +10,9 @@ class AccountController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('account_uncreated')->only('create');;
-        $this->middleware('account_created')->except('create');
+        $this->middleware('auth');
+        $this->middleware('account_uncreated')->only('create');
+        $this->middleware('account_created')->except(['create', 'store']);
     }
 
     public function index() { return redirect()->route('user.index'); }
@@ -21,7 +22,7 @@ class AccountController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name' => 'required|max:35|string',
+            'surname' => 'required|max:35|string',
             'firstname' => 'required|max:50|string',
             'adress' => 'required|max:200|string',
             'postal_code' => 'required|integer',
@@ -31,7 +32,7 @@ class AccountController extends Controller
 
         $account = new Account();
         $account->user_id = Auth::id();
-        $account->name = request('name');
+        $account->surname = request('surname');
         $account->firstname = request('firstname');
         $account->adress = request('adress');
         $account->cp = request('postal_code');
@@ -57,7 +58,7 @@ class AccountController extends Controller
     public function update(Request $request, account $account)
     {
         $this->validate($request,[
-            'name' => 'required|max:35|string',
+            'surname' => 'required|max:35|string',
             'firstname' => 'required|max:50|string',
             'adress' => 'required|max:200|string',
             'postal_code' => 'required|integer',
@@ -66,7 +67,7 @@ class AccountController extends Controller
         ]);
 
         $account = Account::where('user_id', Auth::id())->first();
-        if ($account->name != request('name')) $account->name = request('name');
+        if ($account->surname != request('surname')) $account->surname = request('surname');
         if ($account->firstname != request('firstname')) $account->firstname = request('firstname');
         if ($account->adress != request('adress')) $account->adress = request('adress');
         if ($account->cp != request('postal_code')) $account->cp = request('postal_code');

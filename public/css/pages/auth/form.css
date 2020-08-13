@@ -107,6 +107,13 @@ body .content #box form textarea
     background-color: #e9eff0;
 }
 
+body .content #box form select
+{
+    border: none;
+    margin-bottom: 15px;
+    background-color: #e9eff0;
+}
+
 body .content #box form .custom-file-label
 {
     border: none;

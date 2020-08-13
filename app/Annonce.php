@@ -9,6 +9,6 @@ class Annonce extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['title', 'description', 'link'];
-    protected $visible = ['title', 'description', 'link'];
+    protected $fillable = ['departement_id', 'title', 'description', 'link', 'image'];
+    protected $visible = ['departement_id', 'title', 'description', 'link', 'image'];
 }

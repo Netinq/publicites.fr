@@ -3,38 +3,45 @@
 namespace App\Http\Controllers;
 
 use App\annonce;
+use App\Departement;
+use App\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class AnnonceController extends Controller
 {
-    public function index()
+
+    public function __construct()
     {
-        //
+        $this->middleware('auth');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create($region)
     {
-        //
+        $departements = Departement::where('region_id', $region)->get();
+        return view('annonces.create', compact('departements'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->validate($request,[
-            'departement_id ' => 'required',
+            'departement_id' => 'required',
             'title' => 'required|max:200|string',
-            'description' => 'required|text',
-            'link' => 'required|text',
+            'description' => 'required|string',
+            'link' => 'required|url',
+            'image' => 'required|mimes:jpeg,jpg,png|max:1014'
+        ]);
+
+        $extension = $request->image->extension();
+        $name = Str::random(5);
+
+        $request->image->storeAs('/public', $name.".".$extension);
+        $url = Storage::url($name.".".$extension);
+
+        $file = File::create([
+            'annonce_id' => $name,
+            'url' => $url,
         ]);
     }
 

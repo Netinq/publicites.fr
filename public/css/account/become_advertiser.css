@@ -1,0 +1,136 @@
+body
+{
+    overflow: hidden;
+}
+
+@media screen and (max-width: 767px)
+{
+    body { overflow-x: hidden; overflow-y: scroll; }
+}
+
+body #content 
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    line-height: 112vh;
+}
+
+body #content #regions
+{
+    text-align: center;
+}
+
+
+body #content #regions svg
+{
+    height: 65vh;
+    margin-left: 5vw;
+    display: inline-block;
+    max-width: calc(100% - 5vw);
+}
+
+@media screen and (max-width: 767px) { body #content #regions { height: 55vh; line-height: 55vh; } body #content #regions svg { margin-top: 5vh; } }
+
+body #content #regions svg > a path:hover
+{
+    fill: #B3D7DC !important;
+    transform: scale(1.5) translate(-0.01 0.01);
+    cursor: pointer;
+}
+
+body #content #text
+{
+    line-height: 120vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+@media screen and (max-width: 767px) { body #content #text { height: 40vh; line-height: 40vh; justify-content: start; padding-top: 25px; } }
+
+body #content #text #find-text
+{
+    text-align: center;
+    height: auto;
+    /* background-color: rgba(67, 117, 125, 0.5); */
+    border-radius: 15px;
+    color: #ffffff;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+    line-height: 5px;
+    font-family: Arial, sans-serif;
+}
+
+body #content #text #find-text h1
+{
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0px;
+    color: #9ED4DC;
+}
+
+body #content #text #find-text h2
+{
+    font-size: 1.7rem;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    color: #43757D;
+}
+
+@media screen and (min-width: 1500px)
+{
+
+    body #content #text #find-text h1
+    {
+        font-size: 3.5rem;
+    }
+    
+    body #content #text #find-text h2
+    {
+        font-size: 2.7rem;
+    }
+}
+
+@media screen and (max-width: 1200px)
+{
+    body #content #text #find-text h1{font-size: 2rem;}
+    body #content #text #find-text h2{font-size: 1.5rem;}
+}
+
+@media screen and (max-width: 992px)
+{
+    body #content #text #find-text h1{font-size: 1.4rem;}
+    body #content #text #find-text h2{font-size: 1.1rem;}
+}
+
+@media screen and (max-width: 767px)
+{
+    body #content #text #find-text
+    {
+        display: inline-block;
+        text-align: center;
+        height: auto;
+        background: none;
+        border-radius: 15px;
+        color: #ffffff;
+        text-align: center;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+        line-height: 5px;
+        font-family: Arial, sans-serif;
+    }
+    body #content #text #find-text h1{font-size: 1.5rem;}
+    body #content #text #find-text h2{font-size: 1.2rem;}
+}

@@ -5,9 +5,10 @@
     align-items:center;
     justify-content: center;
     flex-direction: column;
-    height: calc(100vh);
-    margin-top: 0;
+    height: calc(100vh - var(--menu-height));
+    margin-top: var(--menu-height);
     background-color: #ffffff;
+    justify-content: start;
 }
 
 body .content #box .form-group

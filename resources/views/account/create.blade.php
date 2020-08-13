@@ -2,16 +2,16 @@
 
 @section('content')
 <div id="content-image" class="d-none d-sm-block">
-    <img class="background background-active" src="{{asset('images/departements/auvergne-rhone-alpes.jpg')}}">
-    <img class="background" src="{{asset('images/departements/bourgogne-franche-compte.jpg')}}">
-    <img class="background" src="{{asset('images/departements/centre-val-de-loire.jpg')}}">
-    <img class="background" src="{{asset('images/departements/corse.jpg')}}">
-    <img class="background" src="{{asset('images/departements/ile-de-france.jpg')}}">
-    <img class="background" src="{{asset('images/departements/normandie.jpg')}}">
-    <img class="background" src="{{asset('images/departements/nouvelle-aquitaine.jpg')}}">
-    <img class="background" src="{{asset('images/departements/occitanie.jpg')}}">
-    <img class="background" src="{{asset('images/departements/pays-de-la-loire.jpg')}}">
-    <img class="background" src="{{asset('images/departements/provence-alpes-cote-d-azur.jpg')}}">
+    <img class="background background-active" src="{{asset('images/regions/auvergne-rhone-alpes.jpg')}}">
+    <img class="background" src="{{asset('images/regions/bourgogne-franche-compte.jpg')}}">
+    <img class="background" src="{{asset('images/regions/centre-val-de-loire.jpg')}}">
+    <img class="background" src="{{asset('images/regions/corse.jpg')}}">
+    <img class="background" src="{{asset('images/regions/ile-de-france.jpg')}}">
+    <img class="background" src="{{asset('images/regions/normandie.jpg')}}">
+    <img class="background" src="{{asset('images/regions/nouvelle-aquitaine.jpg')}}">
+    <img class="background" src="{{asset('images/regions/occitanie.jpg')}}">
+    <img class="background" src="{{asset('images/regions/pays-de-la-loire.jpg')}}">
+    <img class="background" src="{{asset('images/regions/provence-alpes-cote-d-azur.jpg')}}">
     <div id="mask"></div>
 </div>
 <div class="content row">
@@ -23,9 +23,9 @@
                 @csrf
                 <div class="form-group row">
                     <div class="col-5">
-                        <label for="name" class="col-form-label">Nom</label>
-                        <input id="name" type="name" class="form-control @error('name') is-invalid @enderror" name="name" required autocomplete="current-name" value="{{ old('name') }}">
-                        @error('name')
+                        <label for="surname" class="col-form-label">Nom</label>
+                        <input id="surname" type="surname" class="form-control @error('surname') is-invalid @enderror" name="surname" required autocomplete="current-surname" value="{{ old('surname') }}">
+                        @error('surname')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -79,7 +79,7 @@
                 </div>
                 <div class="col-12 row" style="justify-content: right;">
                     <button type="submit" class="btn">
-                        valider les informations
+                        Valider les informations
                     </button>
                 </div>
             </form>
