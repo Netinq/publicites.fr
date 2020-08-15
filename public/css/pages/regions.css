@@ -5,6 +5,7 @@
     width: 100vw;
     height: calc(100vh - var(--menu-height));
     margin-top: var(--menu-height);
+    overflow: scroll;
 }
 .dep-box 
 {

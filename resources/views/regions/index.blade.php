@@ -8,7 +8,7 @@
     ">
         <a href="{{route('departements.show', $dep->identifier)}}">
             <h3>{{$dep->name}}</h3>
-            <img src="{{asset('images/departements/'.$dep->identifier.'.png')}}">
+            <img src="{{asset('images/departements/'.$dep->identifier.'.png')}}"/>
         </a>
     </div>
     @endforeach
