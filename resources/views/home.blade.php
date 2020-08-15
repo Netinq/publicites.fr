@@ -75,12 +75,18 @@
         <div id="find-text">
             <h1>Trouvez les annonceurs</h1>
             <h2>situés en france métropolitaine</h2>
-            <img id="ping" src="{{asset('images/svg/ping.svg')}}">
-            <span>près de chez vous</span>
+            <span>où devenez annonceur à vie sur publicites.fr</span>
         </div>
-        <div id="facebook" class="d-none d-md-block">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=publicites.fr">
-                <img id="facebook-logo" src="{{asset('images/svg/facebook.svg')}}"><span class="d-none d-md-inline">partagez</span>
+        <div class="btn-content row">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=publicites.fr" class="d-none d-md-block col-5">
+            <div id="facebook">
+                    <img id="facebook-logo" src="{{asset('images/svg/facebook.svg')}}"><span class="d-none d-md-inline">partagez</span>
+                </div>
+            </a>
+            <a href="{{route('become_advertiser')}}" class="d-none d-md-block col-6 offset-1">
+            <div id="become_avertiser">
+                    Devenir annonceur
+                </div>
             </a>
         </div>
     </div>

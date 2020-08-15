@@ -40,6 +40,7 @@ header
     header {
         border-bottom-right-radius: 35px;
         border-top-right-radius: 35px;
+        width: calc(100vw - 25px);
     }
 }
 

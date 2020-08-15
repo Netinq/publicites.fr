@@ -21,3 +21,10 @@ Route::resource('annonces', 'AnnonceController');
 Route::resource('file', 'FileController');
 
 Route::get('annonces/create/{id}', 'AnnonceController@create')->name('annonces.create');
+Route::get('image/fetch_image/{id}', 'ImageController@fetch_image')->name('image.fetch');
+
+Route::get('paypal', function () {
+    return view('test');
+});
+
+Route::post('paypal', 'PaymentController@payWithPaypal')->name('paypal');

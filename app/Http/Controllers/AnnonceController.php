@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\annonce;
+use App\Annonce;
 use App\Departement;
-use App\File;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
+use Intervention\Image\Facades\Image;
+use PayPal\Api\Payment;
+use PayPal\Api\PaymentExecution;
 
 class AnnonceController extends Controller
 {
@@ -33,24 +35,22 @@ class AnnonceController extends Controller
             'image' => 'required|mimes:jpeg,jpg,png|max:1014'
         ]);
 
-        $extension = $request->image->extension();
-        $name = Str::random(5);
+        $image_file = request('image');
+        $image = Image::make($image_file);
+        Response::make($image->encode('jpeg'));
 
-        $request->image->storeAs('/public', $name.".".$extension);
-        $url = Storage::url($name.".".$extension);
+        $annonce = new Annonce();
+        $annonce->user_id = Auth::id();
+        $annonce->departement_id = request('departement_id');
+        $annonce->title = request('title');
+        $annonce->description = request('description');
+        $annonce->link = request('link');
+        $annonce->image = $image;
+        $annonce->save();
 
-        $file = File::create([
-            'annonce_id' => $name,
-            'url' => $url,
-        ]);
+        return redirect()->route('user.index')->with('success', ['Votre annonce à été publié', 'Vous pouvez dès maintenant y accéder en vous connectant à votre compte via votre \"dashboard\".']);;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\annonce  $annonce
-     * @return \Illuminate\Http\Response
-     */
     public function show(annonce $annonce)
     {
         //
@@ -88,5 +88,25 @@ class AnnonceController extends Controller
     public function destroy(annonce $annonce)
     {
         //
+    }
+
+    public function confirmPayment(Request $request)
+    {
+        // If query data not available... no payments was made.
+        if (empty($request->query('paymentId')) || empty($request->query('PayerID')) || empty($request->query('token')))
+            return redirect('/checkout')->withError('Payment was not successful.');
+// We retrieve the payment from the paymentId.
+        $payment = Payment::get($request->query('paymentId'), $this->api_context);
+// We create a payment execution with the PayerId
+        $execution = new PaymentExecution();
+        $execution->setPayerId($request->query('PayerID'));
+// Then we execute the payment.
+        $result = $payment->execute($execution, $this->api_context);
+// Get value store in array and verified data integrity
+        // $value = $request->session()->pull('key', 'default');
+// Check if payment is approved
+        if ($result->getState() != 'approved')
+            return redirect('/checkout')->withError('Payment was not successful.');
+return redirect('/checkout')->withSuccess('Payment made successfully');
     }
 }

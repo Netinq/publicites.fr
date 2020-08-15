@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Departement;
 use Illuminate\Http\Request;
+use App\Annonce;
 
 class DepartementController extends Controller
 {
@@ -46,7 +47,8 @@ class DepartementController extends Controller
      */
     public function show($departement)
     {
-        return view('departements.index');
+        $annonces = Annonce::where(['departement_id' => $departement, 'pay' => true])->get();
+        return view('departements.index', compact('annonces'));
     }
 
     /**

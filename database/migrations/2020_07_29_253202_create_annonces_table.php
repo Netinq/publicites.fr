@@ -17,10 +17,12 @@ class CreateAnnoncesTable extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->string('departement_id')->nullable();
+            $table->boolean('pay')->default(false);
 
             $table->string('title');
             $table->text('description');
             $table->text('link');
+            $table->binary('image');
             
             $table->softDeletes();
             $table->timestamps();
