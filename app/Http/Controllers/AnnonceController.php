@@ -10,13 +10,33 @@ use Illuminate\Support\Facades\Response;
 use Intervention\Image\Facades\Image;
 use PayPal\Api\Payment;
 use PayPal\Api\PaymentExecution;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\URL;
+use PayPal\Api\Amount;
+use PayPal\Api\Payer;
+use PayPal\Api\Details;
+use PayPal\Api\Item;
+use PayPal\Api\ItemList;
+use PayPal\Api\Transaction;
+use PayPal\Api\RedirectUrls;
+use PayPal\Auth\OAuthTokenCredential;
+use PayPal\Rest\ApiContext;
 
 class AnnonceController extends Controller
 {
 
     public function __construct()
     {
+        $paypal_conf = Config::get('paypal');
+        
         $this->middleware('auth');
+        $this->_api_context = new ApiContext(new OAuthTokenCredential(
+            $paypal_conf['client_id'],
+            $paypal_conf['secret'])
+        );
+        $this->_api_context->setConfig($paypal_conf['settings']);
     }
 
     public function create($region)
@@ -29,8 +49,8 @@ class AnnonceController extends Controller
     {
         $this->validate($request,[
             'departement_id' => 'required',
-            'title' => 'required|max:200|string',
-            'description' => 'required|string',
+            'title' => 'required|max:30|string',
+            'description' => 'required|string|max:155',
             'link' => 'required|url',
             'image' => 'required|mimes:jpeg,jpg,png|max:1014'
         ]);
@@ -47,8 +67,67 @@ class AnnonceController extends Controller
         $annonce->link = request('link');
         $annonce->image = $image;
         $annonce->save();
+        
+        $payer = new Payer();
+        $payer->setPaymentMethod('paypal');
 
-        return redirect()->route('user.index')->with('success', ['Votre annonce à été publié', 'Vous pouvez dès maintenant y accéder en vous connectant à votre compte via votre \"dashboard\".']);;
+        $item = new Item();
+        $item->setName('Annonce sur publicites.fr')
+            ->setCurrency('EUR')
+            ->setQuantity(1)
+            ->setPrice(\App\Config::where('name', 'price')->first()->integer);
+
+        $item_list = new ItemList();
+        $item_list->setItems(array($item));
+
+        $amount = new Amount();
+        $amount->setCurrency('EUR')
+                ->setTotal(\App\Config::where('name', 'price')->first()->integer);
+        
+        $transaction = new Transaction();
+        $transaction->setAmount($amount)
+            ->setItemList($item_list);
+
+        $redirect_urls = new RedirectUrls();
+        $redirect_urls->setReturnUrl(route('confirm', [$annonce->id]))
+                ->setCancelUrl(route('user.index'));
+
+        $payment = new Payment();
+        $payment->setIntent('Sale')
+            ->setPayer($payer)
+            ->setRedirectUrls($redirect_urls)
+            ->setTransactions(array($transaction));
+        $payment->create($this->_api_context);
+        
+        foreach ($payment->getLinks() as $link) { if ($link->getRel() == 'approval_url') { $redirect_url = $link->getHref(); break; }}
+        
+        Session::put('paypal_payment_id', $payment->getId());
+
+        if (isset($redirect_url)) {
+            return Redirect::away($redirect_url);
+        } else {
+        Session::put('error', 'Unknown error occurred');
+            return Redirect::route('paywithpaypal');
+        }
+    }
+
+    public function confirm_paiement($id, Request $request)
+    {
+        if (empty($request->query('paymentId')) || empty($request->query('PayerID')) || empty($request->query('token')))
+            return redirect()->route('user.index')->with('error', ['Paiement non éffectué', 'Veuillez tenter de nouveau !']);
+
+        $payment = Payment::get($request->query('paymentId'), $this->_api_context);
+        $execution = new PaymentExecution();
+        $execution->setPayerId($request->query('PayerID'));
+        $result = $payment->execute($execution, $this->_api_context);
+        
+        if ($result->getState() != 'approved') return redirect()->route('user.index')->with('error', ['Paiement non éffectué', 'Veuillez tenter de nouveau !']);
+
+        $annonce = Annonce::where('id', $id)->first();
+        $annonce->pay = true;
+        $annonce->save();
+
+        return redirect()->route('user.index')->with('success', ['Votre annonce à été publié', 'Vous pouvez dès maintenant y accéder en vous connectant à votre compte via votre \"dashboard\".']);
     }
 
     public function show(annonce $annonce)

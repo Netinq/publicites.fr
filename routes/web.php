@@ -27,4 +27,4 @@ Route::get('paypal', function () {
     return view('test');
 });
 
-Route::post('paypal', 'PaymentController@payWithPaypal')->name('paypal');
+Route::get('/confirm/{id}', 'AnnonceController@confirm_paiement')->name('confirm');

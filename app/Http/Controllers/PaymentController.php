@@ -35,23 +35,26 @@ class PaymentController extends Controller
     {
         $payer = new Payer();
                 $payer->setPaymentMethod('paypal');
+
         $item_1 = new Item();
-        $item_1->setName('Annonce sur publicites.fr') /** item name **/
+        $item_1->setName('Annonce sur publicites.fr')
             ->setCurrency('EUR')
             ->setQuantity(1)
-            ->setPrice($request->get('amount')); /** unit price **/
+            ->setPrice($request->get('amount'));
         $item_list = new ItemList();
         $item_list->setItems(array($item_1));
+
         $amount = new Amount();
         $amount->setCurrency('EUR')
                 ->setTotal($request->get('amount'));
+
         $transaction = new Transaction();
         $transaction->setAmount($amount)
             ->setItemList($item_list)
             ->setDescription('Your transaction description');
         $redirect_urls = new RedirectUrls();
         $redirect_urls->setReturnUrl('https://localhost/return')
-                ->setCancelUrl('https://localhost/cancel');
+                ->setCancelUrl(route('user.index'));
         $payment = new Payment();
         $payment->setIntent('Sale')
             ->setPayer($payer)
