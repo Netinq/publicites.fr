@@ -11,10 +11,10 @@
 {
     display: flex;
     vertical-align: middle;
+    justify-content: center;
     align-items:center;
     flex-direction: column;
-    height: calc(100vh - var(--menu-height));
-    margin-top: calc(var(--menu-height) + 20px);
+    height: 100vh;
     z-index: -1;
 }
 

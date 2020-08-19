@@ -75,7 +75,7 @@
         <div id="find-text">
             <h1>Trouvez les annonceurs</h1>
             <h2>situés en france métropolitaine</h2>
-            <span>où devenez annonceur à vie sur publicites.fr</span>
+            <span>Communiquez à vie sur publicites.fr <i>pour 48€</i></span>
         </div>
         <div class="btn-content row">
             <a href="https://www.facebook.com/sharer/sharer.php?u=publicites.fr" class="d-none d-md-block col-5">

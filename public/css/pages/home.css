@@ -35,7 +35,7 @@ footer
 {
     position: fixed;
     bottom: 0;
-    height: 10vh;
+    height: var(--menu-height);
     width: 100vw;
     line-height: 8vh;
     display: flex;
@@ -153,6 +153,15 @@ body #content #text #find-text span
     line-height: 1;
 }
 
+body #content #text #find-text span i
+{
+    display: inline;
+    color: #B3D7DC;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
 @media screen and (min-width: 1500px)
 {
 
@@ -169,6 +178,10 @@ body #content #text #find-text span
     {
         font-size: 1.2rem;
     }
+    body #content #text #find-text span i
+    {
+        font-size: .9rem;
+    }
 }
 
 @media screen and (max-width: 1200px)
@@ -176,6 +189,7 @@ body #content #text #find-text span
     body #content #text #find-text h1{font-size: 2rem;}
     body #content #text #find-text h2{font-size: 1.5rem;}
     body #content #text #find-text span{ font-size: 1.1rem; }
+    body #content #text #find-text span i{font-size: .9rem;}
 }
 
 @media screen and (max-width: 992px)
@@ -183,6 +197,7 @@ body #content #text #find-text span
     body #content #text #find-text h1{font-size: 1.4rem;}
     body #content #text #find-text h2{font-size: 1.1rem;}
     body #content #text #find-text span{ font-size: 1rem; }
+    body #content #text #find-text span i{font-size: .8rem;}
 }
 
 @media screen and (max-width: 767px)
@@ -206,6 +221,7 @@ body #content #text #find-text span
     body #content #text #find-text h1{font-size: 1.5rem;}
     body #content #text #find-text h2{font-size: 1.2rem;}
     body #content #text #find-text span{ font-size: 1.1rem; }
+    body #content #text #find-text span i{font-size: .9rem;}
 }
 
 body #content #facebook
@@ -281,4 +297,5 @@ body #content #become_avertiser
     width: 100%;
     background: rgb(241,77,77);
 background: linear-gradient(145deg, rgba(241,77,77,1) 0%, rgba(252,222,107,1) 100%);
+    text-decoration: none !important;
 }
