@@ -108,7 +108,7 @@ header .menu .elem-btn-primary
     display: inline-block;
     margin-top: calc(var(--menu-sub) / 2);
     line-height: calc(var(--menu-height) - var(--menu-sub));
-    background-color: #9ED4DC;
+    /* background-color: #9ED4DC; */
     color: #ffffff;
     border-radius: 35px;
     box-shadow: rgb(158, 212, 220) 0 0 6px;
