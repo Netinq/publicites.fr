@@ -12,6 +12,7 @@
     margin: 0;
     padding: 0;
     text-align: center;
+    overflow: hidden;
 }
 
 .dep-box img
@@ -74,3 +75,9 @@
 .h-3 { height: calc(((100vh - var(--menu-height)) / 12) * 3); }
 .h-2 { height: calc(((100vh - var(--menu-height)) / 12) * 2); }
 .h-1 { height: calc(((100vh - var(--menu-height)) / 12) * 1); }
+
+@media (max-width: 768px)
+{
+    .h-12 { height: calc(((100vh - var(--menu-height)) / 12) * 4); }
+    .h-6 { height: calc(((100vh - var(--menu-height)) / 12) * 4); }
+}

@@ -39,6 +39,8 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        session(['url.intended' => url()->previous()]);
+        $this->redirectTo = session()->get('url.intended');
     }
 
     /**

@@ -1,0 +1,38 @@
+.content
+{
+    position: absolute;
+    left: 250px;
+    width: calc(100vw - 250px);
+    min-height: 100vh;
+    padding-top: var(--menu-height);
+    background-color: #F9F9F9;
+}
+
+.content .profil-content
+{
+    background-color: #ffffff;
+    position: absolute;
+    padding: 50px;
+    border-radius: 25px;
+    margin-top: 50px;
+    left: 50px;
+    font-family: Arial, sans-serif;
+}
+
+.content .profil-content .profil-title h1
+{
+    color: #43757D;
+    font-size: 3rem;
+}
+
+.content .profil-content .profil-adress
+{
+    width: 50%;
+    
+}
+
+.content .profil-content .profil-informations
+{
+    width: 50%;
+    
+}

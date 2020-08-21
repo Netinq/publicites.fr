@@ -8,14 +8,17 @@ use Illuminate\Support\Facades\Auth;
 
 class AccountController extends Controller
 {
+
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware('account_uncreated')->only('create');
         $this->middleware('account_created')->except(['create', 'store']);
+
+        session(['url.intended' => url()->previous()]);
     }
 
-    public function index() { return redirect()->route('user.index'); }
+    public function index() { return view('user.index'); }
 
     public function create() { return view('account.create'); }
 
@@ -40,7 +43,8 @@ class AccountController extends Controller
         $account->country = request('country');
         $account->save();
 
-        return redirect()->route('user.index')->with('success', ['Votre profil à été créé !', 'Vous pouvez dès maintenant y accéder en vous connectant à votre compte via votre \"dashboard\".']);;
+        if (session()->get('url.intended') != null) return redirect()->idented('/');
+        else return redirect()->route('user.index')->with('success', ['Votre profil à été créé !', 'Vous pouvez dès maintenant y accéder en vous connectant à votre compte via votre \"dashboard\".']);;
     }
 
     public function show(account $account)

@@ -23,17 +23,6 @@ class AccountMiddleware
         $account = Account::where('user_id', $user->id)->first();
 
         if ($account == null) return redirect()->route('account.create');
-        // dd($account);
-        $validator = Validator::make($account->attributesToArray(), [
-            'name' => 'required',
-            'firstname' => 'required',
-            'adress' => 'required',
-            'cp' => 'required',
-            'city' => 'required',
-            'country' => 'required',
-        ]);
-
-        if ($validator->fails()) return redirect()->route('account.create');
         else return $next($request);
     }
 }

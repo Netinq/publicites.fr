@@ -11,7 +11,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/become_advertiser', 'HomeController@become_advertiser')
     ->name('become_advertiser')
-    ->middleware('auth');;
+    ->middleware('auth')
+    ->middleware('account_created');
     
 Route::resource('regions', 'RegionController');
 Route::resource('departements', 'DepartementController');
