@@ -95,8 +95,8 @@ class DepartementsSeeder extends Seeder
         Departement::firstOrCreate(['region_id' => 'hauts-de-france', 'name' => 'Somme','identifier' => '80']);
         Departement::firstOrCreate(['region_id' => 'occitanie', 'name' => 'Tarn','identifier' => '81']);
         Departement::firstOrCreate(['region_id' => 'occitanie', 'name' => 'Tarn-et-Garonne','identifier' => '82']);
-        Departement::firstOrCreate(['region_id' => 'provence-alpes-cote-d-azur', 'Var' => 'Morbihan','identifier' => '83']);
-        Departement::firstOrCreate(['region_id' => 'provence-alpes-cote-d-azur', 'Vaucluse' => 'Morbihan','identifier' => '84']);
+        Departement::firstOrCreate(['region_id' => 'provence-alpes-cote-d-azur', 'name' => 'Var','identifier' => '83']);
+        Departement::firstOrCreate(['region_id' => 'provence-alpes-cote-d-azur', 'name' => 'Vaucluse','identifier' => '84']);
         Departement::firstOrCreate(['region_id' => 'pays-de-la-loire', 'name' => 'Vendée','identifier' => '85']);
         Departement::firstOrCreate(['region_id' => 'nouvelle-aquitaine', 'name' => 'Vienne','identifier' => '86']);
         Departement::firstOrCreate(['region_id' => 'nouvelle-aquitaine', 'name' => 'Haute-Vienne','identifier' => '87']);
