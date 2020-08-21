@@ -47,7 +47,7 @@ class RegionController extends Controller
      */
     public function show($region)
     {
-        $departements = Departement::where('region_id', $region)->get();
+        $departements = Departement::where('region_id', $region)->orderBy('name')->get();
         return view('regions.index', compact('departements'));
     }
 
