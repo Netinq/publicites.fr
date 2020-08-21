@@ -1,0 +1,33 @@
+.tb-content
+{
+    background-color: #ffffff;
+    position: absolute;
+    padding: 25px;
+    border-radius: 25px;
+    margin-top: 50px;
+    left: 50px;
+    font-family: Arial, sans-serif;
+}
+
+.tb-title
+{
+    font-size: 1.2rem;
+    color: #1D1D1D;
+    height: 50px;
+    border-bottom: 2px solid #E7F2F3;
+}
+
+.tb-case
+{
+    border-bottom: 2px solid #E7F2F3;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+}
+
+.tb-col
+{
+    padding-left: 10px;
+    padding-right: 25px;
+    width: 300px;
+}

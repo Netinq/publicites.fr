@@ -15,19 +15,20 @@
     width: 100%;
 }
 
-.panel .box-content .box:nth-child(1)
+.panel .box-content a:nth-child(1) .box
 {
     margin-top: 50px;
 }
 
 .panel .box-content .box
 {
-    height: 100px;
+    height: 75px;
     width: 100%;
     text-align: center;
     cursor: pointer;
-    padding-top: 25px;
+    padding-top: 15px;
     position: relative;
+    color: #1D1D1D;
 }
 
 .panel .box-content .select::before
@@ -74,7 +75,7 @@
 
 .panel .box-content .box img
 {
-    width: 40px !important;
+    width: 30px !important;
 }
 
 .panel .box-content .box h3

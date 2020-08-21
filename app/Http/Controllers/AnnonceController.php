@@ -52,7 +52,7 @@ class AnnonceController extends Controller
             'title' => 'required|max:30|string',
             'description' => 'required|string|max:155',
             'link' => 'required|url',
-            'image' => 'required|mimes:jpeg,jpg,png|max:1014'
+            'image' => 'required|mimes:jpeg,jpg,png|max:1024'
         ]);
 
         $image_file = request('image');

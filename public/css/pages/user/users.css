@@ -1,0 +1,21 @@
+.content
+{
+    position: absolute;
+    left: 250px;
+    width: calc(100vw - 250px);
+    min-height: 100vh;
+    padding-top: var(--menu-height);
+    background-color: #F9F9F9;
+}
+
+.tb-case h3
+{
+    color: #43757D;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}

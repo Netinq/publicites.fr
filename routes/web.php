@@ -9,6 +9,9 @@ Route::get('/legal', 'HomeController@legal')->name('legal');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/user/myannonces', 'UserController@myannonces')->name('myannonces');
+Route::get('/user/annonces', 'UserController@annonces')->name('user.annonces');
+Route::get('/user/users', 'UserController@users')->name('user.users');
 Route::get('/become_advertiser', 'HomeController@become_advertiser')
     ->name('become_advertiser')
     ->middleware('auth')
@@ -23,9 +26,5 @@ Route::resource('file', 'FileController');
 
 Route::get('annonces/create/{id}', 'AnnonceController@create')->name('annonces.create');
 Route::get('image/fetch_image/{id}', 'ImageController@fetch_image')->name('image.fetch');
-
-Route::get('paypal', function () {
-    return view('test');
-});
 
 Route::get('/confirm/{id}', 'AnnonceController@confirm_paiement')->name('confirm');

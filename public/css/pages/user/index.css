@@ -28,11 +28,22 @@
 .content .profil-content .profil-adress
 {
     width: 50%;
-    
+    color: #9ED4DC;
+    line-height: 1;
+    margin-left: 5px;
 }
 
 .content .profil-content .profil-informations
 {
     width: 50%;
-    
+    color: #9ED4DC;
+    line-height: 1;
+    margin-left: -5px;
+}
+
+.content .profil-content .profil-red .red
+{
+    text-align: right;
+    color: #DC9E9E;
+    text-transform: uppercase;
 }

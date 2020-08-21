@@ -16,6 +16,7 @@ class CreateAdministratorsTable extends Migration
         Schema::create('administrators', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->boolean('superuser')->default(false);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

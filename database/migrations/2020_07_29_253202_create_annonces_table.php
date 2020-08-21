@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateAnnoncesTable extends Migration
 {
@@ -22,7 +23,7 @@ class CreateAnnoncesTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->text('link');
-            $table->binary('image');
+            // $table->binary('image');
             
             $table->softDeletes();
             $table->timestamps();
@@ -30,6 +31,8 @@ class CreateAnnoncesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('departement_id')->references('identifier')->on('departements')->onDelete('set null');
         });
+
+        DB::statement("ALTER TABLE annonces ADD image LONGBLOB");
     }
 
     /**
