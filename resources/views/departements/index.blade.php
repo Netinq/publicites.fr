@@ -9,7 +9,7 @@
 </div>
 <div class="ac-content">
     @foreach ($annonces as $ac)
-        <a href="{{$ac->link}}">
+        <a href="{{$ac->link}}" target="_blank">
             <div class="ac-box">
                 <img src="{{route('image.fetch', $ac->id)}}">
                 <div class="ac-txt">

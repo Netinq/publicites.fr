@@ -986,7 +986,7 @@
             <span>Communiquez à vie sur publicites.fr <i>pour 48€</i></span>
         </div>
         <div class="btn-content row">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=publicites.fr" class="d-none d-md-block col-5">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=publicites.fr" class="d-none d-md-block offset-3 col-6">
             <div id="facebook">
                     <img id="facebook-logo" src="{{asset('images/svg/facebook.svg')}}"><span class="d-none d-md-inline">partagez</span>
                 </div>
