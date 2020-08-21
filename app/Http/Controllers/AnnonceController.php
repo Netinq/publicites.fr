@@ -41,7 +41,7 @@ class AnnonceController extends Controller
 
     public function create($region)
     {
-        $departements = Departement::where('region_id', $region)->get();
+        $departements = Departement::where('region_id', $region)->orderBy('name')->get();
         return view('annonces.create', compact('departements'));
     }
 

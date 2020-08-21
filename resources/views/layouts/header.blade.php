@@ -1,6 +1,6 @@
 <header class="row">
     <div class="col-md-4 menu d-none d-md-flex">
-        <a href="{{route('home')}}"><img id="logo" alt="Website logo" src="{{asset('images/logo.png')}}"></a>
+        <a href="{{route('home')}}"><img id="logo" alt="Website logo" src="{{asset('images/texte.png')}}"></a>
         <a href="{{route('home')}}">
             <div class="elem elem-btn-secondary elem-btn-home"><img src="{{asset('images/svg/home.svg')}}"></div>
         </a>
@@ -12,7 +12,7 @@
         </a>
     </div>
     <div class="col-12 menu menu-m d-md-none">
-        <a href="{{route('home')}}"><img id="logo" alt="Website logo" src="{{asset('images/logo.png')}}"></a>
+        <a href="{{route('home')}}"><img id="logo" alt="Website logo" src="{{asset('images/texte.png')}}"></a>
         <a href="{{route('become_advertiser')}}"><div class="elem elem-btn-primary">devenir annonceur</div></a>
     </div>
     <div class="col-12 menu menu-b d-md-none">
