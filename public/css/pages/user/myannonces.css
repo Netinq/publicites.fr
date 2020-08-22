@@ -19,3 +19,8 @@
     margin-top: 15px;
     margin-bottom: 5px;
 }
+
+.tb-title a
+{
+    font-size: .8rem;
+}

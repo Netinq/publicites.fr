@@ -982,7 +982,7 @@
     <div class="col-md-6" id="text">
         <div id="find-text">
             <h1>Trouvez les annonceurs</h1>
-            <h2 class="d-none d-sm-block">situés en france métropolitaine</h2>
+            <h2 class="d-none d-sm-block">proches de chez vous</h2>
             <span>Communiquez à vie sur publicites.fr <i>pour 48€</i></span>
         </div>
         <div class="btn-content row">

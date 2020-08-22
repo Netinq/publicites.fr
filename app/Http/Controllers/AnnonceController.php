@@ -23,6 +23,7 @@ use PayPal\Api\Transaction;
 use PayPal\Api\RedirectUrls;
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Rest\ApiContext;
+use Illuminate\Support\Str;
 
 class AnnonceController extends Controller
 {
@@ -47,6 +48,11 @@ class AnnonceController extends Controller
 
     public function store(Request $request)
     {
+        if (!Str::contains(request('link'), 'http://') || !Str::contains(request('link'), 'http://'))
+        {
+            $request->merge(['link' => 'http://'.request('link')]);
+        }
+
         $this->validate($request,[
             'departement_id' => 'required',
             'title' => 'required|max:30|string',

@@ -6,6 +6,9 @@
     <div class="tb-content">
         <div class="tb-title">
             Mes annonces
+            <a href="{{route('become_advertiser')}}">
+                (publier une annonce)
+            </a>
         </div>
         @foreach ($annonces as $ac)
         <div class="tb-case">

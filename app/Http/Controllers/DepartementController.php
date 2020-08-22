@@ -48,7 +48,7 @@ class DepartementController extends Controller
      */
     public function show($departement)
     {
-        $annonces = Annonce::where(['departement_id' => $departement, 'pay' => true])->get();
+        $annonces = Annonce::where(['departement_id' => $departement, 'pay' => true])->orderBy('updated_at', 'desc')->get();
         $dep = Departement::where('identifier', $departement)->first();
         $reg = Region::where('identifier', $dep->region_id)->first();
         return view('departements.index', compact('annonces', 'dep', 'reg'));
