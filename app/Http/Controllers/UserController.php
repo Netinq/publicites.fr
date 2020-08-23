@@ -26,6 +26,7 @@ class UserController extends Controller
         foreach ($annonces as $ac) {
             $dep = Departement::where('identifier', $ac->departement_id)->first();
             $ac->departement_name = $dep->name;
+            $ac->image = route('image.fetch', $ac->id);
         }
         return view('user.myannonces', compact('annonces', 'admin'));
     }

@@ -134,7 +134,6 @@ body .content #box form button[type=submit]
     margin: 0;
     display: block !important;
     font-size: 0.8rem;
-    font-weight: bold;
     font-family: Arial, sans-serif;
     border-radius: 25px;
 }

@@ -18,7 +18,7 @@
     <div class="col-md-6" id="text">
         <div id="find-text">
             <h1>Sélectionnez votre région</h1>
-            <h2>où celle du lieu de votre annonce</h2>
+            <h2>ou celle du lieu de votre annonce</h2>
         </div>
     </div>
     <div class="col-md-5" id="regions">

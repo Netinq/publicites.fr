@@ -2,7 +2,7 @@
 {
     position: absolute;
     left: 250px;
-    width: calc(100vw - 250px);
+    width: calc(70vw - 250px);
     min-height: 100vh;
     padding-top: var(--menu-height);
     background-color: #F9F9F9;
@@ -17,10 +17,105 @@
     font-size: 1rem;
     font-weight: bold;
     margin-top: 15px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 }
 
 .tb-title a
 {
     font-size: .8rem;
+}
+
+.view
+{
+    position: absolute;
+    background-image: url(../../../images/regions/provence-alpes-cote-d-azur.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: calc(30vw);
+    min-height: 100vh;
+    left: 70vw;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+}
+
+.ac-content
+{
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    top: var(--menu-height);
+    display: flex;
+    flex-direction: row;
+    flex-flow: row;
+    flex-grow: 4;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.ac-box
+{
+    height: 310px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 60px;
+    position: relative;
+}
+
+.ac-box img
+{
+    width: 100%;
+    height: 200px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    z-index: 1;
+    position: relative;
+}
+.ac-box .ac-txt
+{
+    height: 125px;
+    background-color: #ffffff;
+    margin-top: -25px;
+    border-radius: 25px;
+    z-index: 10;
+    padding: 25px;
+    position: relative;
+    padding-top: 20px;
+}
+.ac-box .ac-txt h3 
+{
+    color: #43757D;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0;
+}
+.ac-box .ac-txt p
+{
+    color: #434343;
+    font-family: Arial, sans-serif;
+    font-size: .8rem;
+    margin: 0;
+    line-height: 1.3;
+    margin-top: 5px;
+}
+.ac-box .ac-btn
+{
+    height: 40px;
+    background-color: #9EDCA4;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: .7rem;
+    text-align: center;
+    position: absolute;
+    width: 50%;
+    font-family: Arial, sans-serif;
+    line-height: 40px;
+    border-radius: 25px;
+    bottom: -20px;
+    z-index: 100;
+    right: -20px;
 }
