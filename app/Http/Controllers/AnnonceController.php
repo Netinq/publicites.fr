@@ -48,7 +48,7 @@ class AnnonceController extends Controller
 
     public function store(Request $request)
     {
-        if (!Str::contains(request('link'), 'http://') || !Str::contains(request('link'), 'http://'))
+        if (!(Str::contains(request('link'), 'https://')) && !(Str::contains(request('link'), 'http://')))
         {
             $request->merge(['link' => 'http://'.request('link')]);
         }
@@ -147,9 +147,11 @@ class AnnonceController extends Controller
      * @param  \App\annonce  $annonce
      * @return \Illuminate\Http\Response
      */
-    public function edit(annonce $annonce)
+    public function edit($id)
     {
-        //
+        $ac = Annonce::where('id', $id)->first();
+        $ac->image = route('image.fetch', $ac->id);
+        return view('annonces.edit', compact('ac'));
     }
 
     /**
@@ -159,9 +161,34 @@ class AnnonceController extends Controller
      * @param  \App\annonce  $annonce
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, annonce $annonce)
+    public function update(Request $request, $id)
     {
-        //
+        if (!Str::contains(request('link'), 'https://') && !Str::contains(request('link'), 'http://'))
+        {
+            $request->merge(['link' => 'http://'.request('link')]);
+        }
+
+        $this->validate($request,[
+            'title' => 'max:30|string',
+            'description' => 'string|max:155',
+            'link' => 'url',
+            'image' => 'mimes:jpeg,jpg,png|max:1024'
+        ]);
+        if (request('image') != null)
+        {
+            $image_file = request('image');
+            $image = Image::make($image_file);
+            Response::make($image->encode('jpeg'));
+        }
+
+        $annonce = Annonce::where('id', $id)->first();
+        if (request('title') != null) $annonce->title = request('title');
+        if (request('description') != null) $annonce->description = request('description');
+        if (request('link') != null) $annonce->link = request('link');
+        if (request('image') != null) $annonce->image = $image;
+        $annonce->save();
+
+        return redirect()->route('user.index')->with('success', ['Votre annonce à été mise à jour', 'Vous pouvez dès maintenant y accéder en vous connectant à votre compte via votre \"dashboard\".']);
     }
 
     /**
@@ -170,9 +197,12 @@ class AnnonceController extends Controller
      * @param  \App\annonce  $annonce
      * @return \Illuminate\Http\Response
      */
-    public function destroy(annonce $annonce)
+    public function destroy($id)
     {
-        //
+        $ac = Annonce::where('id', $id)->first();
+        $ac->delete();
+
+        return redirect()->route('user.index')->with('success', ['Votre annonce à été supprimé', '']);
     }
 
     public function confirmPayment(Request $request)

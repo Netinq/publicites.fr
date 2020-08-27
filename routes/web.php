@@ -22,7 +22,6 @@ Route::resource('departements', 'DepartementController');
 Route::resource('user', 'UserController');
 Route::resource('account', 'AccountController');
 Route::resource('annonces', 'AnnonceController');
-Route::resource('file', 'FileController');
 
 Route::get('annonces/create/{id}', 'AnnonceController@create')->name('annonces.create');
 Route::get('image/fetch_image/{id}', 'ImageController@fetch_image')->name('image.fetch');

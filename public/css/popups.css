@@ -1,0 +1,31 @@
+.popup
+{
+    position: fixed;
+    padding: 50px;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 100000;
+    box-shadow: 0 0 100vw #d3d3d3;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.success h4
+{
+    color: #58a158;
+}
+
+.error h4
+{
+    color: #dd6161;
+}
+
+.popup img
+{
+    height: 50px;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 15px;
+}

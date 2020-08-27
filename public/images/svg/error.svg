@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <g id="error" transform="translate(-832 -235)">
+    <g id="Ellipse_4" data-name="Ellipse 4" transform="translate(832 235)" fill="none" stroke="#dd6161" stroke-width="10">
+      <circle cx="128" cy="128" r="128" stroke="none"/>
+      <circle cx="128" cy="128" r="123" fill="none"/>
+    </g>
+    <path id="Icon_awesome-exclamation" data-name="Icon awesome-exclamation" d="M45.483,119.767A22.179,22.179,0,1,1,23.3,97.588,22.2,22.2,0,0,1,45.483,119.767ZM3.692,6.986l3.77,75.409a6.654,6.654,0,0,0,6.645,6.321H32.5a6.654,6.654,0,0,0,6.645-6.321l3.77-75.409A6.654,6.654,0,0,0,36.27,0H10.338A6.654,6.654,0,0,0,3.692,6.986Z" transform="translate(936.621 292.188)" fill="#dd6161"/>
+  </g>
+</svg>

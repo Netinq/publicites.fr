@@ -32,6 +32,13 @@
                 <h3>{{$ac->title}}</h3>
                 <span>{{$ac->departement_id}} - {{$ac->departement_name}}</span>
             </div>
+            <div class="tb-sm-col">
+                <a href="{{route('annonces.edit', $ac->id)}}">
+                <div class="edit">
+                    Modifier
+                </div>
+                </a>
+            </div>
         </div>
         @endforeach
     </div>

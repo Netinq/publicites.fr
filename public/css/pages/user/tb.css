@@ -38,3 +38,10 @@
     padding-right: 25px;
     width: 300px;
 }
+
+.tb-sm-col
+{
+    padding-left: 10px;
+    padding-right: 25px;
+    width: 150px;
+}

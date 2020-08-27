@@ -4,27 +4,24 @@
 <div class="create-content row">
     <div class="content create-form col-md-6">
         <div id="box">
-            <h1>Rejoignez les annonceurs</h1>
-            <h2>complétez ces informations pour votre annonce</h2>
-            <form method="POST" action="{{ route('annonces.store') }}" enctype="multipart/form-data">
+            @if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+            <h1>Modifier votre annonce</h1>
+            <form method="POST" action="{{ route('annonces.update', $ac->id) }}" enctype="multipart/form-data">
                 @csrf
+                {{ method_field('PUT') }}
                 <div class="form-group row">
                     <div class="col-10 col-md-8">
-                        <label for="departement_id" class="col-form-label">Departement de l'annonce</label>
-                        <select class="form-control" name="departement_id" id="departement_id">
-                            @foreach ($departements as $dep)
-                                <option value="{{ $dep->identifier }}" {{ (old("departement_id") == $dep->identifier ? "selected":"") }}>{{ $dep->name }}</option>
-                            @endforeach
-                        </select>
-                        @error('departement_id')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                    <div class="col-10 col-md-8">
                         <label for="title" class="col-form-label">Titre de l'annonce</label>
-                        <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" required autocomplete="current-title" value="{{ old('title') }}">
+                        <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" autocomplete="current-title" 
+                        value="{{ old('title') == null ? $ac->title : old('title')}}">
                         @error('title')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -33,7 +30,7 @@
                     </div>
                     <div class="col-10 col-md-8">
                         <label for="description" class="col-form-label">Description de votre annonce</label>
-                        <textarea id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" required autocomplete="current-description" maxlength="150">{{ old('description') }}</textarea>
+                        <textarea id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" autocomplete="current-description" maxlength="150">{{ old('description') == null ? $ac->description : old('description')}}</textarea>
                         @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -42,7 +39,7 @@
                     </div>
                     <div class="col-10 col-md-8">
                         <label for="link" class="col-form-label">Lien de votre annonce</label>
-                        <input id="link" type="link" class="form-control @error('link') is-invalid @enderror" name="link" required autocomplete="current-link" value="{{ old('link') }}">
+                        <input id="link" type="link" class="form-control @error('link') is-invalid @enderror" name="link" autocomplete="current-link" value="{{ old('link') == null ? $ac->link : old('link')}}">
                         @error('link')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -53,7 +50,7 @@
                         <label for="image" class="col-form-label">Image de votre annonce</label>
                         <div class="custom-file">
                             <input type="file" id="image" name="image"
-                            class="{{ $errors->has('image') ? ' is-invalid ' : '' }}custom-file-input" required value="{{old('image')}}">
+                            class="{{ $errors->has('image') ? ' is-invalid ' : '' }}custom-file-input" value="{{ old('image') == null ? $ac->image : old('image')}}">
                             <label class="custom-file-label" for="image" style="padding: 0.375rem 0.75rem;">Choissisez un fichier</label>
                             @if ($errors->has('image'))
                                 <div class="invalid-feedback">
@@ -67,7 +64,7 @@
                     <div class="col-10 col-md-8 row">
                         <div class="col-8 button" style="padding: 0;">
                             <button type="submit" class="btn">
-                                Créer mon annonce
+                                Enregistrer les modifications
                             </button>
                         </div>
                     </div>
@@ -77,10 +74,10 @@
     </div>
     <div class="view col-md-6 d-none d-md-block">
         <div class="ac-box">
-            <img id="ex_image" src="">
+            <img id="ex_image" src="{{$ac->image}}">
             <div class="ac-txt">
-                <h3 id="ex_title"></h3>
-                <p id="ex_description"></p>
+                <h3 id="ex_title">{{$ac->title}}</h3>
+                <p id="ex_description">{{$ac->description}}</p>
             </div>
             <div class="ac-btn">
                 Plus d'informations...

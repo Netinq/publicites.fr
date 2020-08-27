@@ -119,3 +119,19 @@
     z-index: 100;
     right: -20px;
 }
+
+.edit
+{
+    position: relative;
+    height: 30px;
+    margin-top: 15px;
+    text-align: center;
+    color: #43757D;
+    border-radius: 15px;
+    line-height: 30px;
+    box-sizing: border-box;
+}
+
+.edit:hover{
+    background-color: #dbe5e6;
+}
