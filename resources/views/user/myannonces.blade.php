@@ -39,6 +39,15 @@
                 </div>
                 </a>
             </div>
+            <div class="tb-sm-col">
+                <form action="{{ route('annonces.destroy',$ac->id) }}" method="POST" >
+                @csrf
+                @method('DELETE')
+                <div class="delete">
+                    <button type="submit" onclick="return confirm('Êtes-vous sur de vouloir supprimer l\'annonce : {{$ac->title}} ?')">Supprimer</button>
+                </div>
+                </form>
+            </div>
         </div>
         @endforeach
     </div>

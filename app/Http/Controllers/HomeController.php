@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Departement;
-use Illuminate\Http\Request;
+use App\Config;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('home');
+        $price = Config::where('name', 'price')->first();
+        $fb_link = Config::where('name', 'fb_link')->first();
+        return view('home', compact('price', 'fb_link'));
     }
 
     public function legal()

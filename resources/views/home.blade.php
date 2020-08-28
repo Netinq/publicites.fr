@@ -983,10 +983,10 @@
         <div id="find-text">
             <h1>Trouvez les annonceurs</h1>
             <h2 class="d-none d-sm-block">proches de chez vous</h2>
-            <span>Communiquez à vie sur publicites.fr <i>pour 48€</i></span>
+            <span>Communiquez à vie sur publicites.fr <i>pour {{$price->integer}}€</i></span>
         </div>
         <div class="btn-content row">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=publicites.fr" class="d-none d-md-block offset-3 col-6" target="_blank">
+            <a href="{{$fb_link->string}}" class="d-none d-md-block offset-3 col-6" target="_blank">
             <div id="facebook">
                     <img id="facebook-logo" src="{{asset('images/svg/facebook.svg')}}"><span class="d-none d-md-inline">partagez</span>
                 </div>

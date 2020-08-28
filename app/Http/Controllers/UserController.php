@@ -9,6 +9,7 @@ use App\Account;
 use App\Administrator;
 use App\Annonce;
 use Illuminate\Support\Facades\Auth;
+use App\Config;
 
 class UserController extends Controller
 {
@@ -43,6 +44,19 @@ class UserController extends Controller
         return view('user.users', compact('users', 'admin'));
     }
 
+    public function search(Request $request)
+    {
+        if(Administrator::where('user_id', Auth::id())->exists()) $admin = true;
+        else $admin = false;
+        $args = request('search');
+        $users = User::where('email', 'LIKE', '%'.$args.'%')->get();
+        foreach ($users as $user) {
+            $account = Account::where('user_id', $user->id)->first();
+            $user->account = $account;
+        }
+        return view('user.users', compact('users', 'admin' , 'args'));
+    }
+
     public function annonces()
     {
         if(Administrator::where('user_id', Auth::id())->exists()) $admin = true;
@@ -65,7 +79,13 @@ class UserController extends Controller
         else $admin = false;
         $account = Account::where('user_id', Auth::id())->first();
         $user = User::where('id', Auth::id())->first();
-        return view('user.index', compact('account', 'user', 'admin'));
+
+        if ($admin)
+        {
+            $price = Config::where('name', 'price')->first();
+            $fb_link = Config::where('name', 'fb_link')->first();
+            return view('user.index', compact('account', 'user', 'admin', 'config'));
+        } else return view('user.index', compact('account', 'user', 'admin'));
     }
 
     /**
@@ -131,6 +151,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        if (!Administrator::where('user_id', Auth::id())->exists())
+        {
+            return redirect()->route('user.index')->with('error', ['Vous n\'avez pas la permission', '']);
+        }
+        $email = $user->email;
+        $user->delete();
+        return redirect()->route('user.index')->with('success', ['Le compte '.$email.' à été supprimé !', '']);
     }
 }

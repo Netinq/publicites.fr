@@ -6,6 +6,7 @@
     min-height: 100vh;
     padding-top: var(--menu-height);
     background-color: #F9F9F9;
+    overflow: scroll;
 }
 
 .tb-case h3
@@ -18,4 +19,41 @@
     font-weight: bold;
     margin-top: 10px;
     margin-bottom: 5px;
+}
+
+.edit
+{
+    position: relative;
+    height: 30px;
+    margin-top: 15px;
+    text-align: center;
+    color: #43757D;
+    border-radius: 15px;
+    line-height: 30px;
+    box-sizing: border-box;
+}
+
+.edit:hover{
+    background-color: #dbe5e6;
+}
+.delete
+{
+    position: relative;
+    height: 30px;
+    margin-top: 15px;
+    text-align: center;
+    color: #DC9E9E;
+    border-radius: 15px;
+    line-height: 30px;
+    box-sizing: border-box;
+}
+.delete button
+{
+    color: #DC9E9E;
+    background: none;
+    border: none;
+}
+
+.delete:hover{
+    background-color: #dbe5e6;
 }

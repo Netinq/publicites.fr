@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         
         'account_created' => \App\Http\Middleware\AccountMiddleware::class,
         'account_uncreated' => \App\Http\Middleware\AccountIfCreated::class,
+        'admin' => \App\Http\Middleware\Admin::class,
     ];
 }

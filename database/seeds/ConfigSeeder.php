@@ -13,5 +13,6 @@ class ConfigSeeder extends Seeder
     public function run()
     {
         Config::firstOrCreate(['name' => 'price','integer' => 48]);
+        Config::firstOrCreate(['name' => 'fb_link', 'string' => 'https://www.facebook.com/sharer/sharer.php?u=publicites.fr']);
     }
 }

@@ -13,10 +13,8 @@ use PayPal\Api\PaymentExecution;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\URL;
 use PayPal\Api\Amount;
 use PayPal\Api\Payer;
-use PayPal\Api\Details;
 use PayPal\Api\Item;
 use PayPal\Api\ItemList;
 use PayPal\Api\Transaction;
@@ -24,6 +22,9 @@ use PayPal\Api\RedirectUrls;
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Rest\ApiContext;
 use Illuminate\Support\Str;
+use App\Administrator;
+use App\User;
+use App\Account;
 
 class AnnonceController extends Controller
 {
@@ -38,6 +39,25 @@ class AnnonceController extends Controller
             $paypal_conf['secret'])
         );
         $this->_api_context->setConfig($paypal_conf['settings']);
+    }
+
+    public function search(Request $request)
+    {
+        if(Administrator::where('user_id', Auth::id())->exists()) $admin = true;
+        else $admin = false;
+        $args = request('search');
+        $annonces = Annonce::where('title', 'LIKE', '%'.$args.'%')
+        ->orWhere('description', 'LIKE', '%'.$args.'%')
+        ->orWhere('departement_id', 'LIKE', '%'.$args.'%')->get();
+        foreach ($annonces as $ac) {
+            $dep = Departement::where('identifier', $ac->departement_id)->first();
+            $user = User::where('id', $ac->user_id)->first();
+            $account = Account::where('user_id', $ac->user_id)->first();
+            $ac->departement_name = $dep->name;
+            $ac->user = $user;
+            $ac->account = $account;
+        }
+        return view('user.annonces', compact('annonces', 'admin' , 'args'));
     }
 
     public function create($region)
@@ -163,6 +183,12 @@ class AnnonceController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $annonce = Annonce::where('id', $id)->first();
+        if ($annonce->user_id != Auth::id() && !Administrator::where('user_id', Auth::id())->exists())
+        {
+            return redirect()->route('user.index')->with('error', ['Vous n\'avez pas la permission', '']);
+        }
+
         if (!Str::contains(request('link'), 'https://') && !Str::contains(request('link'), 'http://'))
         {
             $request->merge(['link' => 'http://'.request('link')]);
@@ -181,7 +207,6 @@ class AnnonceController extends Controller
             Response::make($image->encode('jpeg'));
         }
 
-        $annonce = Annonce::where('id', $id)->first();
         if (request('title') != null) $annonce->title = request('title');
         if (request('description') != null) $annonce->description = request('description');
         if (request('link') != null) $annonce->link = request('link');
@@ -199,9 +224,12 @@ class AnnonceController extends Controller
      */
     public function destroy($id)
     {
-        $ac = Annonce::where('id', $id)->first();
-        $ac->delete();
-
+        $annonce = Annonce::find($id);
+        if ($annonce->user_id != Auth::id() && !Administrator::where('user_id', Auth::id())->exists())
+        {
+            return redirect()->route('user.index')->with('error', ['Vous n\'avez pas la permission', '']);
+        }
+        $annonce->delete();
         return redirect()->route('user.index')->with('success', ['Votre annonce à été supprimé', '']);
     }
 

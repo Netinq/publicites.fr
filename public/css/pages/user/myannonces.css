@@ -6,6 +6,7 @@
     min-height: 100vh;
     padding-top: var(--menu-height);
     background-color: #F9F9F9;
+    overflow: scroll;
 }
 
 .tb-case h3
@@ -133,5 +134,26 @@
 }
 
 .edit:hover{
+    background-color: #dbe5e6;
+}
+.delete
+{
+    position: relative;
+    height: 30px;
+    margin-top: 15px;
+    text-align: center;
+    color: #DC9E9E;
+    border-radius: 15px;
+    line-height: 30px;
+    box-sizing: border-box;
+}
+.delete button
+{
+    color: #DC9E9E;
+    background: none;
+    border: none;
+}
+
+.delete:hover{
     background-color: #dbe5e6;
 }
