@@ -2,7 +2,7 @@
 {
     position: absolute;
     left: 250px;
-    width: calc(100vw - 250px);
+    width: calc(100vw - 350px);
     min-height: 100vh;
     padding-top: var(--menu-height);
     background-color: #F9F9F9;
@@ -46,4 +46,152 @@
     text-align: right;
     color: #DC9E9E;
     text-transform: uppercase;
+}
+
+
+.content-box
+{
+    display: flex;
+    vertical-align: middle;
+    align-items:center;
+    flex-direction: column;
+    height: calc(100vh - var(--menu-height));
+    margin-top: calc(var(--menu-height) + 20px);
+    z-index: -1;
+}
+
+.content-logo
+{
+    text-align: center;
+    line-height: 100vh;
+}
+
+div #logo
+{
+    width: 50%;
+}
+
+#box
+{
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.99);
+    height: auto;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 1;
+    padding: 25px;
+    padding-top: 50px;
+}
+
+@media screen and (max-width: 576px)
+{
+
+    .content-box
+    {
+        height: 100vh;
+        background-color: #ffffff;
+    }
+    
+}
+
+form 
+{
+    margin-top: 50px;
+}
+
+form label
+{
+    text-align: left;
+    color: #43757D;
+    margin-left: 2px;
+    font-size: 1rem;
+    padding: 0;
+}
+
+form input
+{
+    border: none;
+    margin-bottom: 15px;
+    background-color: #e9eff0;
+}
+
+form textarea
+{
+    border: none;
+    margin-bottom: 15px;
+    background-color: #e9eff0;
+}
+
+form select
+{
+    border: none;
+    margin-bottom: 15px;
+    background-color: #e9eff0;
+}
+
+form .custom-file-label
+{
+    border: none;
+    margin-bottom: 15px;
+    background-color: #e9eff0;
+    box-sizing: border-box;
+    color: #bbbbbb;
+}
+
+form .custom-file-label::after
+{
+    border: none;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    background-color: #9ED4DC;
+    color: #ffffff;
+    height: 100%;
+    content: "Parcourir";
+}
+
+form button[type=submit]
+{
+    background-color: #9ED4DC;
+    color: #ffffff;
+    margin: 0;
+    display: block !important;
+    font-size: 0.8rem;
+    font-family: Arial, sans-serif;
+    border-radius: 25px;
+}
+
+form #create
+{
+    padding: 0;
+    font-size: .7rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #E7F2F3;
+    color: #43757D;
+    border-radius: 25px;
+}
+
+form .button
+{
+    text-align: center;
+}
+
+@media screen and (max-width: 767px)
+{
+
+    form button[type=submit]
+    {
+        font-size: .8rem;
+    }
+    
+    form #create
+    {
+        font-size: .6rem;
+    }
+}
+
+form #create a
+{
+    color: #43757D;
 }

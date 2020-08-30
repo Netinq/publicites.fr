@@ -43,6 +43,42 @@
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
         </div>
+        @if ($admin)
+        <div class="config-content create-form row col-12">
+            <form method="POST" action="{{ route('config.store') }}" enctype="multipart/form-data">
+                @csrf
+                <div class="form-group row">
+                    <div class="col-10 col-md-8">
+                        <label for="price" class="col-form-label">Prix d'une annonce</label>
+                        <input id="price" type="number" class="form-control @error('price') is-invalid @enderror" name="price" required autocomplete="current-price" value="{{ $price->integer }}"/>
+                        @error('price')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="col-10 col-md-8">
+                        <label for="fb_link" class="col-form-label">Lien facebook</label>
+                        <input id="fb_link" type="link" class="form-control @error('fb_link') is-invalid @enderror" name="fb_link" required autocomplete="current-fb_link" value="{{ $fb_link->string }}">
+                        @error('fb_link')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-10 col-md-8 row">
+                        <div class="col-8 button" style="padding: 0;">
+                            <button type="submit" class="btn">
+                                Mettre à jour
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        @endif
     </div>
 </div>
 @endsection

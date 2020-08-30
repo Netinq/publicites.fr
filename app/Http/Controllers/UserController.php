@@ -84,7 +84,7 @@ class UserController extends Controller
         {
             $price = Config::where('name', 'price')->first();
             $fb_link = Config::where('name', 'fb_link')->first();
-            return view('user.index', compact('account', 'user', 'admin', 'config'));
+            return view('user.index', compact('account', 'user', 'admin', 'price', 'fb_link'));
         } else return view('user.index', compact('account', 'user', 'admin'));
     }
 

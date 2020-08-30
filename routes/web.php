@@ -29,3 +29,5 @@ Route::get('image/fetch_image/{id}', 'ImageController@fetch_image')->name('image
 Route::get('/confirm/{id}', 'AnnonceController@confirm_paiement')->name('confirm');
 Route::post('/annonces/search', 'AnnonceController@search')->name('annonces.search');
 Route::post('/users/search', 'UserController@search')->name('users.search');
+
+Route::post('/config/update', 'ConfigController@store')->name('config.store');
