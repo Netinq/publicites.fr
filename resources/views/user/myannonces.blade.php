@@ -52,7 +52,7 @@
         @endforeach
     </div>
 </div>
-<div class="view">
+<div class="view d-none d-lg-flex">
     <div class="ac-box">
         <img id="img" src="">
         <div class="ac-txt">

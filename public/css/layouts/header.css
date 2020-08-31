@@ -111,7 +111,7 @@ header .menu .elem-btn-primary
     /* background-color: #9ED4DC; */
     color: #ffffff;
     border-radius: 35px;
-    box-shadow: rgb(158, 212, 220) 0 0 6px;
+    /* box-shadow: rgb(158, 212, 220) 0 0 6px; */
     overflow: hidden;
     position: relative;
 }

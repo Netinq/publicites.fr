@@ -1,3 +1,7 @@
+body
+{
+    overflow: scroll;
+}
 .content
 {
     position: absolute;
@@ -6,7 +10,14 @@
     min-height: 100vh;
     padding-top: var(--menu-height);
     background-color: #F9F9F9;
-    overflow: scroll;
+}
+
+@media (max-width: 992px)
+{
+    .content
+    {
+        width: calc(100vw - 250px);
+    }
 }
 
 .tb-case h3

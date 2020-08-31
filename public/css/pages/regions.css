@@ -79,5 +79,6 @@
 @media (max-width: 768px)
 {
     .h-12 { height: calc(((100vh - var(--menu-height)) / 12) * 4); }
-    .h-6 { height: calc(((100vh - var(--menu-height)) / 12) * 4); }
+    .h-6 { height: calc(((100vh - var(--menu-height)) / 12) * 6); }
+    .h-sm-6 { height: calc(((100vh - var(--menu-height)) / 12) * 6); }
 }

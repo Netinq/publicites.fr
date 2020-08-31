@@ -1,3 +1,7 @@
+body
+{
+    overflow: scroll;
+}
 .content
 {
     position: absolute;
@@ -6,7 +10,6 @@
     min-height: 100vh;
     padding-top: var(--menu-height);
     background-color: #F9F9F9;
-    overflow: scroll;
 }
 
 .tb-case h3

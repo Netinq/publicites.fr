@@ -7,6 +7,7 @@
     width: 250px;
     background-color: #9ED4DC;
     border-top-right-radius: 35px;
+    z-index: 1000;
 }
 
 .panel .box-content
@@ -90,4 +91,12 @@
     position: absolute;
     bottom: 0;
     color: #E16666;
+}
+@media (max-width: 768px)
+{
+
+    .panel .box-content .box-btm
+    {
+        bottom: 75px;
+    }
 }

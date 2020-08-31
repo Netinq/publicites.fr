@@ -93,47 +93,60 @@ class AnnonceController extends Controller
         $annonce->link = request('link');
         $annonce->image = $image;
         $annonce->save();
+
+        if(Administrator::where('user_id', Auth::id())->exists()) $admin = true;
+        else $admin = false;
         
-        $payer = new Payer();
-        $payer->setPaymentMethod('paypal');
-
-        $item = new Item();
-        $item->setName('Annonce sur publicites.fr')
-            ->setCurrency('EUR')
-            ->setQuantity(1)
-            ->setPrice(\App\Config::where('name', 'price')->first()->integer);
-
-        $item_list = new ItemList();
-        $item_list->setItems(array($item));
-
-        $amount = new Amount();
-        $amount->setCurrency('EUR')
-                ->setTotal(\App\Config::where('name', 'price')->first()->integer);
-        
-        $transaction = new Transaction();
-        $transaction->setAmount($amount)
-            ->setItemList($item_list);
-
-        $redirect_urls = new RedirectUrls();
-        $redirect_urls->setReturnUrl(route('confirm', [$annonce->id]))
-                ->setCancelUrl(route('user.index'));
-
-        $payment = new Payment();
-        $payment->setIntent('Sale')
-            ->setPayer($payer)
-            ->setRedirectUrls($redirect_urls)
-            ->setTransactions(array($transaction));
-        $payment->create($this->_api_context);
-        
-        foreach ($payment->getLinks() as $link) { if ($link->getRel() == 'approval_url') { $redirect_url = $link->getHref(); break; }}
-        
-        Session::put('paypal_payment_id', $payment->getId());
-
-        if (isset($redirect_url)) {
-            return Redirect::away($redirect_url);
-        } else {
-        Session::put('error', 'Unknown error occurred');
-            return Redirect::route('paywithpaypal');
+        if ($admin)
+        {
+            $annonce = Annonce::where('id', $annonce->id)->first();
+            $annonce->pay = true;
+            $annonce->save();
+    
+            return redirect()->route('user.index')->with('success', ['Votre annonce à été publié', 'Vous pouvez dès maintenant y accéder en vous connectant à votre compte via votre \"dashboard\".']);
+        }
+        else {
+            $payer = new Payer();
+            $payer->setPaymentMethod('paypal');
+    
+            $item = new Item();
+            $item->setName('Annonce sur publicites.fr')
+                ->setCurrency('EUR')
+                ->setQuantity(1)
+                ->setPrice(\App\Config::where('name', 'price')->first()->integer);
+    
+            $item_list = new ItemList();
+            $item_list->setItems(array($item));
+    
+            $amount = new Amount();
+            $amount->setCurrency('EUR')
+                    ->setTotal(\App\Config::where('name', 'price')->first()->integer);
+            
+            $transaction = new Transaction();
+            $transaction->setAmount($amount)
+                ->setItemList($item_list);
+    
+            $redirect_urls = new RedirectUrls();
+            $redirect_urls->setReturnUrl(route('confirm', [$annonce->id]))
+                    ->setCancelUrl(route('user.index'));
+    
+            $payment = new Payment();
+            $payment->setIntent('Sale')
+                ->setPayer($payer)
+                ->setRedirectUrls($redirect_urls)
+                ->setTransactions(array($transaction));
+            $payment->create($this->_api_context);
+            
+            foreach ($payment->getLinks() as $link) { if ($link->getRel() == 'approval_url') { $redirect_url = $link->getHref(); break; }}
+            
+            Session::put('paypal_payment_id', $payment->getId());
+    
+            if (isset($redirect_url)) {
+                return Redirect::away($redirect_url);
+            } else {
+            Session::put('error', 'Unknown error occurred');
+                return Redirect::route('paywithpaypal');
+            }
         }
     }
 
