@@ -46,9 +46,16 @@ class AnnonceController extends Controller
         if(Administrator::where('user_id', Auth::id())->exists()) $admin = true;
         else $admin = false;
         $args = request('search');
-        $annonces = Annonce::where('title', 'LIKE', '%'.$args.'%')
+        $ac_p1 = Annonce::where('title', 'LIKE', '%'.$args.'%')
         ->orWhere('description', 'LIKE', '%'.$args.'%')
         ->orWhere('departement_id', 'LIKE', '%'.$args.'%')->get();
+        if (User::where('email', 'LIKE', '%'.$args.'%')->first() != null)
+        {
+            $ac_p2 = User::where('email', 'LIKE', '%'.$args.'%')->first()->annonce()->get();
+            $annonces = $ac_p1->merge($ac_p2);
+        } else {
+            $annonces = $ac_p1;
+        }
         foreach ($annonces as $ac) {
             $dep = Departement::where('identifier', $ac->departement_id)->first();
             $user = User::where('id', $ac->user_id)->first();
