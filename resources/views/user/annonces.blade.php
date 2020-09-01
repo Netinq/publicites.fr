@@ -16,7 +16,7 @@
         </div>
         @foreach ($annonces as $ac)
         <div class="tb-case tb-at-case">
-            <div class="tb-col">
+            <div class="tb-lg-col">
                 <h3>{{$ac->title}}</h3>
                 <span>{{$ac->departement_id}} - {{$ac->departement_name}}</span>
             </div>

@@ -26,7 +26,7 @@ class ConfigController extends Controller
         if (request('fb_link') != null)
         {
             $fb_link = Config::where('name', 'fb_link')->first();
-            $fb_link->string = request('fb_link;');
+            $fb_link->string = request('fb_link');
             $fb_link->save();
         }
         return redirect()->route('user.index')->with('success', ['Configuration mise à jour !', 'Les options de configurations du site ont été mises à jours.']);;

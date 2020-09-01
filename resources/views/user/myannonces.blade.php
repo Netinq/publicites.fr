@@ -28,9 +28,16 @@
         </div>
         @foreach ($annonces as $ac)
         <div class="tb-case" id="{{$ac->id}}" onmouseover="change({{$ac->id}})">
-            <div class="tb-col">
+            <div class="tb-lg-col">
                 <h3>{{$ac->title}}</h3>
                 <span>{{$ac->departement_id}} - {{$ac->departement_name}}</span>
+            </div>
+            <div class="tb-sm-col">
+                <a href="{{ $ac->pay ? '' : route('annonce.pay', [$ac->id])}}">
+                <div class="status {{ $ac->pay ? 'pay' : 'notpay'}}">
+                    @if($ac->pay) en ligne @else à payer @endif
+                </div>
+                </a>
             </div>
             <div class="tb-sm-col">
                 <a href="{{route('annonces.edit', $ac->id)}}">

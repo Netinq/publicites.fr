@@ -31,3 +31,4 @@ Route::post('/annonces/search', 'AnnonceController@search')->name('annonces.sear
 Route::post('/users/search', 'UserController@search')->name('users.search');
 
 Route::post('/config/update', 'ConfigController@store')->name('config.store');
+Route::get('/pay/{id}', 'AnnonceController@pay')->name('annonce.pay');

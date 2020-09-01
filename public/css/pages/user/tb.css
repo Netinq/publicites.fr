@@ -95,6 +95,7 @@
 .edit:hover{
     background-color: #dbe5e6;
 }
+
 .delete
 {
     position: relative;
@@ -114,5 +115,32 @@
 }
 
 .delete:hover{
+    background-color: #dbe5e6;
+}
+
+.status
+{
+    position: relative;
+    height: 30px;
+    margin-top: 15px;
+    text-align: center;
+    border-radius: 15px;
+    line-height: 25px;
+    box-sizing: border-box;
+}
+
+.pay
+{
+    color: #58a158;
+    border: 2px solid #58a158;
+}
+
+.notpay
+{
+    color: #dd6161;
+    border: 2px solid #dd6161;
+}
+
+.status:hover{
     background-color: #dbe5e6;
 }
