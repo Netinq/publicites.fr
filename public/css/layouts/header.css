@@ -150,7 +150,7 @@ header .menu .elem-btn-secondary
 
 header .menu .elem-btn-home img
 {
-    height: 3vh;
+    height: calc(var(--menu-height) - var(--menu-sub) - 15px);
 }
 
 header .menu .elem-btn-secondary:hover
