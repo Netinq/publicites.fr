@@ -100,3 +100,32 @@
         bottom: 75px;
     }
 }
+
+.needpay::after
+{
+    content: ' ';
+    position: absolute;
+    top: 10px;
+    left: 100px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #E16666;
+    border: 2px solid #9ED4DC;
+    box-sizing: content-box;
+}
+
+.panel .box-content .needpay:hover::after
+{
+    border-color: #C4E3E8;
+}
+
+.panel .box-content .select::after
+{
+    border-color: #F9F9F9;
+}
+
+.panel .box-content .select:hover::after
+{
+    border-color: #F9F9F9;
+}

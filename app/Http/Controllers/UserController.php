@@ -23,44 +23,52 @@ class UserController extends Controller
     {
         if(Administrator::where('user_id', Auth::id())->exists()) $admin = true;
         else $admin = false;
+        if(Annonce::where('pay', false)->exists()) $needpay = true;
+        else $needpay = false;
         $annonces = Annonce::where('user_id', Auth::id())->get();
         foreach ($annonces as $ac) {
             $dep = Departement::where('identifier', $ac->departement_id)->first();
             $ac->departement_name = $dep->name;
             $ac->image = route('image.fetch', $ac->id);
         }
-        return view('user.myannonces', compact('annonces', 'admin'));
+        return view('user.myannonces', compact('annonces', 'admin', 'needpay'));
     }
 
     public function users()
     {
         if(Administrator::where('user_id', Auth::id())->exists()) $admin = true;
         else $admin = false;
+        if(Annonce::where('pay', false)->exists()) $needpay = true;
+        else $needpay = false;
         $users = User::all();
         foreach ($users as $user) {
             $account = Account::where('user_id', $user->id)->first();
             $user->account = $account;
         }
-        return view('user.users', compact('users', 'admin'));
+        return view('user.users', compact('users', 'admin', 'needpay'));
     }
 
     public function search(Request $request)
     {
         if(Administrator::where('user_id', Auth::id())->exists()) $admin = true;
         else $admin = false;
+        if(Annonce::where('pay', false)->exists()) $needpay = true;
+        else $needpay = false;
         $args = request('search');
         $users = User::where('email', 'LIKE', '%'.$args.'%')->get();
         foreach ($users as $user) {
             $account = Account::where('user_id', $user->id)->first();
             $user->account = $account;
         }
-        return view('user.users', compact('users', 'admin' , 'args'));
+        return view('user.users', compact('users', 'admin', 'needpay' , 'args'));
     }
 
     public function annonces()
     {
         if(Administrator::where('user_id', Auth::id())->exists()) $admin = true;
         else $admin = false;
+        if(Annonce::where('pay', false)->exists()) $needpay = true;
+        else $needpay = false;
         $annonces = Annonce::all();
         foreach ($annonces as $ac) {
             $dep = Departement::where('identifier', $ac->departement_id)->first();
@@ -70,13 +78,15 @@ class UserController extends Controller
             $ac->user = $user;
             $ac->account = $account;
         }
-        return view('user.annonces', compact('annonces', 'admin'));
+        return view('user.annonces', compact('annonces', 'admin', 'needpay'));
     }
 
     public function index()
     {
         if(Administrator::where('user_id', Auth::id())->exists()) $admin = true;
         else $admin = false;
+        if(Annonce::where('pay', false)->exists()) $needpay = true;
+        else $needpay = false;
         $account = Account::where('user_id', Auth::id())->first();
         $user = User::where('id', Auth::id())->first();
 
@@ -84,8 +94,8 @@ class UserController extends Controller
         {
             $price = Config::where('name', 'price')->first();
             $fb_link = Config::where('name', 'fb_link')->first();
-            return view('user.index', compact('account', 'user', 'admin', 'price', 'fb_link'));
-        } else return view('user.index', compact('account', 'user', 'admin'));
+            return view('user.index', compact('account', 'user', 'admin', 'needpay', 'price', 'fb_link'));
+        } else return view('user.index', compact('account', 'user', 'admin', 'needpay'));
     }
 
     /**

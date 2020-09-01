@@ -15,7 +15,7 @@
             </div>
         </div>
         @foreach ($annonces as $ac)
-        <div class="tb-case tb-at-case">
+        <div class="tb-case tb-at-case {{ $ac->pay ? 'notifpay' : 'notifnotpay'}}">
             <div class="tb-lg-col">
                 <h3>{{$ac->title}}</h3>
                 <span>{{$ac->departement_id}} - {{$ac->departement_name}}</span>

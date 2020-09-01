@@ -60,3 +60,35 @@ body
 .delete:hover{
     background-color: #dbe5e6;
 }
+
+.notifpay
+{
+    position: relative;
+}
+.notifpay::before
+{
+    content: ' ';
+    position: absolute;
+    top: 12px;
+    left: -5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #58a158;
+}
+
+.notifnotpay
+{
+    position: relative;
+}
+.notifnotpay::before
+{
+    content: ' ';
+    position: absolute;
+    top: 12px;
+    left: -5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #dd6161;
+}

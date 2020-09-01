@@ -7,8 +7,8 @@
                     </div>
             </a>
             <a href="{{route('myannonces')}}">
-        <div class="box {{ $select == 'myannonces' ? 'select' : ''}}">
-                <img src="{{asset('images/svg/annonces.svg')}}">
+        <div class="box {{ $select == 'myannonces' ? 'select' : ''}} {{ $needpay ? 'needpay' : ''}}">
+                <img class="{{ $needpay ? 'needpay' : ''}}" src="{{asset('images/svg/annonces.svg')}}">
                 <h3>Mes Annonces</h3>
         </div>
             </a>

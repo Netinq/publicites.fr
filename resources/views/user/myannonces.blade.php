@@ -10,7 +10,6 @@
         annonces.forEach(ac => {
             if(ac.id == id)
             {
-                console.log(ac.title)
                 document.getElementById('title').innerHTML = ac.title;
                 document.getElementById('desc').innerHTML = ac.description;
                 document.getElementById('img').src = ac.image;
