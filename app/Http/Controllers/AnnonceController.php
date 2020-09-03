@@ -25,6 +25,7 @@ use Illuminate\Support\Str;
 use App\Administrator;
 use App\User;
 use App\Account;
+use ImageOptimizer;
 
 class AnnonceController extends Controller
 {
@@ -34,6 +35,7 @@ class AnnonceController extends Controller
         $paypal_conf = Config::get('paypal');
         
         $this->middleware('auth');
+        $this->middleware('optimizeImages')->only(['store', 'update']);
         $this->_api_context = new ApiContext(new OAuthTokenCredential(
             $paypal_conf['client_id'],
             $paypal_conf['secret'])
@@ -45,6 +47,8 @@ class AnnonceController extends Controller
     {
         if(Administrator::where('user_id', Auth::id())->exists()) $admin = true;
         else $admin = false;
+        if(Annonce::where('pay', false)->exists()) $needpay = true;
+        else $needpay = false;
         $args = request('search');
         $ac_p1 = Annonce::where('title', 'LIKE', '%'.$args.'%')
         ->orWhere('description', 'LIKE', '%'.$args.'%')
@@ -85,11 +89,13 @@ class AnnonceController extends Controller
             'title' => 'required|max:30|string',
             'description' => 'required|string|max:155',
             'link' => 'required|url',
-            'image' => 'required|mimes:jpeg,jpg,png|max:1024'
-        ]);
-
-        $image_file = request('image');
-        $image = Image::make($image_file);
+            'image' => 'required|mimes:jpeg,jpg,png|max:3024'
+            ]);
+            
+        $image = Image::make(request('image'));
+        $image->resize(null, 400, function ($constraint) {
+            $constraint->aspectRatio();
+        });
         Response::make($image->encode('jpeg'));
 
         $annonce = new Annonce();
