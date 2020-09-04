@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/legal', 'HomeController@legal')->name('legal');
+Route::get('/devlog', 'HomeController@devlog')->name('devlog');
 
 Auth::routes();
 

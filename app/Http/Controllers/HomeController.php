@@ -19,6 +19,11 @@ class HomeController extends Controller
         return view('legal');
     }
 
+    public function devlog()
+    {
+        return view('devlog');
+    }
+
     public function regions($id)
     {
         $departements = Departement::where('region_id', $id)->get();
