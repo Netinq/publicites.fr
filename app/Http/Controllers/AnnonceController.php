@@ -68,7 +68,7 @@ class AnnonceController extends Controller
             $ac->user = $user;
             $ac->account = $account;
         }
-        return view('user.annonces', compact('annonces', 'admin' , 'args'));
+        return view('user.annonces', compact('annonces', 'admin' , 'args', 'needpay'));
     }
 
     public function create($region)
