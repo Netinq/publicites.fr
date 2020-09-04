@@ -1,0 +1,22 @@
+body #content
+{
+    margin-top: 100px;
+}
+
+iframe
+{
+    min-height: calc(100vh - 200px - var(--menu-height));
+}
+
+h1
+
+{
+    margin-left: 20px;
+    font-family: Arial, sans-serif;
+}
+
+p
+{
+    white-space: pre-line;
+    color: #000000;
+}
