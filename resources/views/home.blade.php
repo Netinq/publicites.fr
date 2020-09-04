@@ -994,7 +994,11 @@
     </div>
 </div>
 <footer>
-    <div class="elem d-none d-md-inline-block">tous droits réservés</div>
+    <div class="elem d-none d-md-inline-block">tous droits réservés
+        <a href="{{route('devlog')}}">
+            journal de développement
+        </a>
+    </div>
     <a href="{{route('legal')}}">
         <div class="elem">cgv - mentions légales</div>
     </a>

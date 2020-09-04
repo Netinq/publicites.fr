@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/legal', 'HomeController@legal')->name('legal');
+Route::get('/devlog', 'HomeController@devlog')->name('devlog');
 
 Auth::routes();
 
@@ -16,7 +17,7 @@ Route::get('/become_advertiser', 'HomeController@become_advertiser')
     ->name('become_advertiser')
     ->middleware('auth')
     ->middleware('account_created');
-    
+
 Route::resource('regions', 'RegionController');
 Route::resource('departements', 'DepartementController');
 Route::resource('user', 'UserController');
@@ -32,3 +33,6 @@ Route::post('/users/search', 'UserController@search')->name('users.search');
 
 Route::post('/config/update', 'ConfigController@store')->name('config.store');
 Route::get('/pay/{id}', 'AnnonceController@pay')->name('annonce.pay');
+
+Route::post('setAdmin/{id}', 'UserController@setAdmin')->name('setAdmin');
+Route::post('removeAdmin/{id}', 'UserController@removeAdmin')->name('removeAdmin');

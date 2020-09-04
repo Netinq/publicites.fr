@@ -26,7 +26,7 @@ body #content-image .background
     transition: all 1s;
 }
 
-body #content-image .background-active 
+body #content-image .background-active
 {
     opacity: 1;
 }
@@ -53,16 +53,27 @@ footer .elem
     margin-right: 15px;
 }
 
+footer .elem a
+{
+    color: #9ED4DC;
+    text-transform: uppercase;
+    font-size: .8rem;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
 @media screen and (max-width: 768px)
 {
-    footer 
+    footer
     {
         bottom: 10vh;
         justify-content: center;
     }
 }
 
-body #content 
+body #content
 {
     position: absolute;
     top: 0;
@@ -169,7 +180,7 @@ body #content #text #find-text span i
     {
         font-size: 3.5rem;
     }
-    
+
     body #content #text #find-text h2
     {
         font-size: 2.7rem;
@@ -237,17 +248,17 @@ body #content #facebook
 }
 
 @media screen and (max-width: 767px){
-    body #content #facebook 
-    { 
-        width: 50px; 
+    body #content #facebook
+    {
+        width: 50px;
         line-height: 50px;
-        height: 50px; 
+        height: 50px;
         position: fixed;
         right: 5px;
         bottom: calc(8vh + 5px);
     }
 }
-    
+
 
 body #content #facebook span
 {
