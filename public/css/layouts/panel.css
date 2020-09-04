@@ -89,7 +89,7 @@
 .panel .box-content .box-btm
 {
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
     color: #E16666;
 }
 @media (max-width: 768px)

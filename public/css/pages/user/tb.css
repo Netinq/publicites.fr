@@ -118,6 +118,43 @@
     background-color: #dbe5e6;
 }
 
+.admin
+{
+    position: relative;
+    height: 30px;
+    margin-top: 15px;
+    text-align: center;
+    border-radius: 15px;
+    line-height: 25px;
+    box-sizing: border-box;
+}
+.admin button
+{
+    background: none;
+    border: none;
+}
+
+.setAdmin
+{
+    color: #1D1D1D;
+    border: 2px solid #1D1D1D;
+}
+
+.removeAdmin
+{
+    color: #dd6161;
+    border: 2px solid #dd6161;
+}
+
+.removeAdmin button
+{
+    color: #dd6161;
+}
+
+.admin:hover{
+    background-color: #dbe5e6;
+}
+
 .status
 {
     position: relative;
