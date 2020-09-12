@@ -1,4 +1,4 @@
-@section('description', 'Commerçants, entrepreneurs, particuliers, présentez vos produits, votre marque, vos services ! Communiquez à vie sur Publicites.fr')
+@section('description', 'Commerçants, entrepreneurs, particuliers, présentez vos produits, votre marque, vos services ! Communiquez à vie sur frfr.fr')
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -11,7 +11,7 @@
         <meta name='owner' content='Gregory Gasser'>
         <meta name='subject' content="Annonces">
         
-        <meta name='identifier-URL' content='publicites.fr'>
+        <meta name='identifier-URL' content='frfr.fr'>
         <meta name='keywords' content='publicités, publicité, pub, annonces, annonce'>
         <meta name="description" content="@yield('description')">
         <meta name='reply-to' content='contact@sarquentin.fr'>
@@ -27,18 +27,18 @@
         <!-- Twitter Card meta -->
         <meta name='twitter:card' content='summary'>
         <meta name="twitter:site" content="@Netinq" />
-        <meta name="twitter:title" content="@hasSection('title') {{Config::get('app.name')}} - @yield('title') @else Communiquez à vie sur Publicites.fr @endif" />
-        <meta name='twitter:url' content='https://publicites.fr' />
-        <meta name='twitter:domain' content='publicites.fr' />
+        <meta name="twitter:title" content="@hasSection('title') {{Config::get('app.name')}} - @yield('title') @else Communiquez à vie sur frfr.fr @endif" />
+        <meta name='twitter:url' content='https://frfr.fr' />
+        <meta name='twitter:domain' content='frfr.fr' />
         <meta name="twitter:description" content="@yield('description')" />
         <meta name="twitter:image" content="{{asset('images/meta.png')}}" />
         
         <!-- Open Graph meta -->
-        <meta property='og:title' content='@hasSection('title') {{Config::get('app.name')}} - @yield('title') @else Communiquez à vie sur Publicites.fr @endif' />
+        <meta property='og:title' content='@hasSection('title') {{Config::get('app.name')}} - @yield('title') @else Communiquez à vie sur frfr.fr @endif' />
         <meta property="og:description" content="@yield('description')" />
         <meta property="og:image" content="{{asset('images/meta.png')}}" />
         <meta property='og:type' content='website' />
-        <meta property='og:url' content='https://publicites.fr' />
+        <meta property='og:url' content='https://frfr.fr' />
         <meta property='og:site_name' content='{{Config::get('app.name')}}' />
         <meta property='author' content='Quentin Sar' />
         <meta property='profile:gender' content='male' />
@@ -51,7 +51,7 @@
 
         <title>
             @hasSection('title') {{Config::get('app.name')}} : @yield('title') 
-            @else Communiquez à vie sur Publicites.fr @endif
+            @else Communiquez à vie sur frfr.fr @endif
         </title>
 
         <meta http-equiv="content-language" content="fr">
