@@ -982,7 +982,7 @@
         <div id="find-text">
             <h1>Trouvez les annonceurs</h1>
             <h2 class="d-none d-sm-block">proches de chez vous</h2>
-            <span>Communiquez à vie sur publicites.fr <i>pour {{$price->integer}}€</i></span>
+            <span>Communiquez à vie sur frfr.fr <i>pour {{$price->integer}}€</i></span>
         </div>
         <div class="btn-content row">
             <a href="{{$fb_link->string}}" class="d-none d-md-block offset-3 col-6" target="_blank">
@@ -995,9 +995,6 @@
 </div>
 <footer>
     <div class="elem d-none d-md-inline-block">tous droits réservés
-        <a href="{{route('devlog')}}">
-            journal de développement
-        </a>
     </div>
     <a href="{{route('legal')}}">
         <div class="elem">cgv - mentions légales</div>
