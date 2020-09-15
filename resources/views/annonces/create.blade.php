@@ -33,7 +33,7 @@
                     </div>
                     <div class="col-10 col-md-8">
                         <label for="description" class="col-form-label">Description de votre annonce</label>
-                        <textarea id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" required autocomplete="current-description" maxlength="150">{{ old('description') }}</textarea>
+                        <textarea id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" required autocomplete="current-description" maxlength="300">{{ old('description') }}</textarea>
                         @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -50,7 +50,7 @@
                         @enderror
                     </div>
                     <div class="col-10 col-md-8">
-                        <label for="image" class="col-form-label">Image de votre annonce</label>
+                        <label for="image" class="col-form-label">Image de votre annonce <span>(max 3Mo)</span></label>
                         <div class="custom-file">
                             <input type="file" id="image" name="image"
                             class="{{ $errors->has('image') ? ' is-invalid ' : '' }}custom-file-input" required value="{{old('image')}}">

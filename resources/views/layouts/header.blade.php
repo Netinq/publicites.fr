@@ -21,7 +21,7 @@
         </a>
     </div>
     <div class="col-12 menu menu-b d-md-none">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=publicites.fr">
+        <a href="{{$fb_link->string}}">
             <div id="facebook">
                 <img id="facebook-logo" src="{{asset('images/svg/facebook.svg')}}"><span class="d-none d-md-inline">partagez</span>
             </div>

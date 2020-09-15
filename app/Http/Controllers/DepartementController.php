@@ -9,6 +9,13 @@ use App\Region;
 
 class DepartementController extends Controller
 {
+
+    public function __construct()
+    {
+        $fb_link = Config::where('name', 'fb_link')->first();
+        \View::share('fb_link', $fb_link);
+        
+    }
     /**
      * Display a listing of the resource.
      *

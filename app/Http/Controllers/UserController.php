@@ -17,6 +17,8 @@ class UserController extends Controller
     {
         $this->middleware('account_created');
         $this->middleware('auth');
+        $fb_link = Config::where('name', 'fb_link')->first();
+        \View::share('fb_link', $fb_link);
     }
 
     public function myannonces()
@@ -55,6 +57,7 @@ class UserController extends Controller
 
     public function search(Request $request)
     {
+        $fb_link = Config::where('name', 'fb_link')->first();
         if(Administrator::where('user_id', Auth::id())->exists()) $admin = true;
         else $admin = false;
         if(Annonce::where('pay', false)->exists()) $needpay = true;
@@ -65,11 +68,12 @@ class UserController extends Controller
             $account = Account::where('user_id', $user->id)->first();
             $user->account = $account;
         }
-        return view('user.users', compact('users', 'admin', 'needpay' , 'args'));
+        return view('user.users', compact('users', 'admin', 'needpay' , 'args', 'fb_link'));
     }
 
     public function annonces()
     {
+        $fb_link = Config::where('name', 'fb_link')->first();
         if(Administrator::where('user_id', Auth::id())->exists()) $admin = true;
         else $admin = false;
         if(Annonce::where('pay', false)->exists()) $needpay = true;
@@ -83,7 +87,7 @@ class UserController extends Controller
             $ac->user = $user;
             $ac->account = $account;
         }
-        return view('user.annonces', compact('annonces', 'admin', 'needpay'));
+        return view('user.annonces', compact('annonces', 'admin', 'needpay', 'fb_link'));
     }
 
     public function setAdmin($id)

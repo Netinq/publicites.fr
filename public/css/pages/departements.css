@@ -62,7 +62,7 @@ body .title-box #locate
 
 .ac-box
 {
-    height: 310px;
+    height: 380px;
     background-color: #ffffff;
     border-radius: 25px;
     width: calc(100vw / 4 - 60px);
@@ -89,7 +89,7 @@ body .title-box #locate
 }
 .ac-box .ac-txt
 {
-    height: 125px;
+    height: 180px;
     background-color: #ffffff;
     margin-top: -25px;
     border-radius: 25px;

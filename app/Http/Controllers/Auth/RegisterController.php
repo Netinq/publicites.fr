@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Config;
 
 class RegisterController extends Controller
 {
@@ -41,6 +42,8 @@ class RegisterController extends Controller
         $this->middleware('guest');
         session(['url.intended' => url()->previous()]);
         $this->redirectTo = session()->get('url.intended');
+        $fb_link = Config::where('name', 'fb_link')->first();
+        \View::share('fb_link', $fb_link);
     }
 
     /**

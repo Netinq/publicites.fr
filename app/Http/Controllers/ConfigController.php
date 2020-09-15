@@ -13,6 +13,8 @@ class ConfigController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('admin');
+        $fb_link = Config::where('name', 'fb_link')->first();
+        \View::share('fb_link', $fb_link);
     }
 
     public function store(Request $request)

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Config;
 
 class AccountController extends Controller
 {
@@ -16,6 +17,8 @@ class AccountController extends Controller
         $this->middleware('account_created')->except(['create', 'store']);
 
         session(['url.intended' => url()->previous()]);
+        $fb_link = Config::where('name', 'fb_link')->first();
+        \View::share('fb_link', $fb_link);
     }
 
     public function index() { return view('user.index'); }

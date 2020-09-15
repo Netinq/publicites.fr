@@ -41,6 +41,8 @@ class AnnonceController extends Controller
             $paypal_conf['secret'])
         );
         $this->_api_context->setConfig($paypal_conf['settings']);
+        $fb_link = \App\Config::where('name', 'fb_link')->first();
+        \View::share('fb_link', $fb_link);
     }
 
     public function search(Request $request)
@@ -87,7 +89,7 @@ class AnnonceController extends Controller
         $this->validate($request,[
             'departement_id' => 'required',
             'title' => 'required|max:30|string',
-            'description' => 'required|string|max:155',
+            'description' => 'required|string|max:310',
             'link' => 'required|url',
             'image' => 'required|mimes:jpeg,jpg,png|max:3024'
             ]);
