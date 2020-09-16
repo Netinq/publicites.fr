@@ -36,10 +36,12 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        $email = Config::where('name', 'email')->first();     
         $this->middleware('guest')->except('logout');
         session(['url.intended' => url()->previous()]);
         $this->redirectTo = session()->get('url.intended');
         $fb_link = Config::where('name', 'fb_link')->first();
         \View::share('fb_link', $fb_link);
+        \View::share('email', $email);
     }
 }

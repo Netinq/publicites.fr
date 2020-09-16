@@ -160,15 +160,13 @@ body #content #text #find-text span
     display: inline;
     color: #B3D7DC;
     font-size: 1.5rem;
-    font-weight: bold;
     line-height: 1;
 }
 
-body #content #text #find-text span i
+body #content #text #find-text span b
 {
     display: inline;
     color: #B3D7DC;
-    font-size: 1rem;
     font-weight: bold;
     line-height: 1;
 }
@@ -189,11 +187,6 @@ body #content #text #find-text span i
     {
         font-size: 1.2rem;
     }
-    body #content #text #find-text span i
-    {
-        font-size: .9rem;
-    }
-}
 
 @media screen and (max-width: 1200px)
 {

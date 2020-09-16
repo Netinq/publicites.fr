@@ -56,6 +56,14 @@
                 </form>
             </div>
             <div class="tb-sm-col">
+                <form action="{{ route('passwordReset',[$user->id]) }}" method="POST" >
+                @csrf
+                <div class="delete">
+                    <button type="submit" onclick="return confirm('Êtes-vous sur de vouloir réinitialisé le mot de passe de : {{$user->email}} ?')">Réinitialiser</button>
+                </div>
+                </form>
+            </div>
+            <div class="tb-sm-col">
                 <form action="{{ route($user->admin ? 'removeAdmin' : 'setAdmin', [$user->id]) }}" method="POST" >
                 @csrf
                 <div class="admin {{$user->admin ? 'removeAdmin' : 'setAdmin'}}">

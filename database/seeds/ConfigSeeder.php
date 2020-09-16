@@ -14,5 +14,6 @@ class ConfigSeeder extends Seeder
     {
         Config::firstOrCreate(['name' => 'price','integer' => 48]);
         Config::firstOrCreate(['name' => 'fb_link', 'string' => 'https://www.facebook.com/sharer/sharer.php?u=publicites.fr']);
+        Config::firstOrCreate(['name' => 'email', 'string' => 'contact@frfr.fr']);
     }
 }

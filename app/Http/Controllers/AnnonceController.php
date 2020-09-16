@@ -91,7 +91,7 @@ class AnnonceController extends Controller
             'title' => 'required|max:30|string',
             'description' => 'required|string|max:310',
             'link' => 'required|url',
-            'image' => 'required|mimes:jpeg,jpg,png|max:3024'
+            'image' => 'required|mimes:jpeg,jpg,png|max:3072'
             ]);
             
         $image = Image::make(request('image'));

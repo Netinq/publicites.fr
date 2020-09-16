@@ -19,6 +19,11 @@ body .content #box h1
     line-height: 1;
 }
 
+body .content #box
+{
+    margin-bottom: 50px;
+}
+
 body .content #box h2
 {
     color: #43757D;

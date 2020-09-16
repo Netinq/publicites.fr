@@ -38,6 +38,12 @@
             <p>{{$account->country}}</p>
         </div>
         <div class="profil-red col-12 row">
+            <a href="{{route('passwordEdit', [$account->id])}}" class="blue offset-6 col-6">
+                modifier le mot de passe
+            </a>
+            <a href="{{route('account.edit', $account->id)}}" class="blue offset-6 col-6">
+                éditer le compte
+            </a>
             <a href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="red offset-6 col-6">
                 déconnexion
             </a>
@@ -61,6 +67,15 @@
                         <label for="fb_link" class="col-form-label">Lien facebook</label>
                         <input id="fb_link" type="link" class="form-control @error('fb_link') is-invalid @enderror" name="fb_link" required autocomplete="current-fb_link" value="{{ $fb_link->string }}">
                         @error('fb_link')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="col-10 col-md-8">
+                        <label for="email" class="col-form-label">Email en cas de perte de mot de passe</label>
+                        <input id="email" type="link" class="form-control @error('email') is-invalid @enderror" name="email" required autocomplete="current-email" value="{{ $email->string }}">
+                        @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

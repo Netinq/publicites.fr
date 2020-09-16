@@ -36,3 +36,7 @@ Route::get('/pay/{id}', 'AnnonceController@pay')->name('annonce.pay');
 
 Route::post('setAdmin/{id}', 'UserController@setAdmin')->name('setAdmin');
 Route::post('removeAdmin/{id}', 'UserController@removeAdmin')->name('removeAdmin');
+
+Route::get('passwordEdit/{id}', 'UserController@passwordEdit')->name('passwordEdit');
+Route::post('passwordChange/{id}', 'UserController@passwordChange')->name('passwordChange');
+Route::post('passwordReset/{id}', 'UserController@passwordReset')->name('passwordReset');

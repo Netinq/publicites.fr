@@ -32,8 +32,7 @@
     <p>
         Tout espace publicitaire déposé, validé, payé, est diffusée sur frfr.fr, ceci pour une durée illimitée, soit à vie. Sauf retrait anticipé, notamment en raison de contenu illicite, aucun remboursement ne sera effectué. Signification de « A vie « : Un seul payement sera effectué à la commande pour toute la durée de vie du site internet. Publicite.fr pourra malgré ses ambitions fermer ses portes, ou pour raisons financières, médicales, extérieur au bon vouloir de la société. Aucun recours par l’annonceur ne sera possible, et aucun remboursement ne pourra être demandé.   
         L'annonceur reconnaît et accepte à ce que le dernier annonceur modifiant sa fiche sera repositionné en 1ere position, permettant ainsi de pouvoir fidéliser les annonceurs sur le site.
-        Pour diffuser sur frfr.fr, les frais payables à la commande en une seule  fois, et à vie sont : 
-        De 38 euros TTC pour une durée illimitée.
+        Pour diffuser sur frfr.fr, les frais payables à la commandesont réglées en une fois, payement comptant, sans abonnement, pas de frais supplémentaires.
         Les frais d'insertion sont payables par carte bancaire ou par paypal.
         Toute modification de l’espace publicitaire est possible à tout moment pour l’annonceur, ainsi que sa photo, sa description, son lien internet.
         Détail du service proposé : 

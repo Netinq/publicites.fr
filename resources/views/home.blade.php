@@ -982,7 +982,7 @@
         <div id="find-text">
             <h1>Trouvez les annonceurs</h1>
             <h2 class="d-none d-sm-block">proches de chez vous</h2>
-            <span>Communiquez à vie sur frfr.fr <i>pour {{$price->integer}}€</i></span>
+            <span>Communiquez à vie sur frfr.fr <b>pour {{$price->integer}}€</b></span>
         </div>
         <div class="btn-content row">
             <a href="{{$fb_link->string}}" class="d-none d-md-block offset-3 col-6" target="_blank">

@@ -58,6 +58,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-group row">
+                    <div class="col-10 col-md-8 row password-lost">
+                        En cas de perte de mot de passe veuillez contacter {{ $email->string }}
+                    </div>
+                </div>
             </form>
         </div>
     </div>

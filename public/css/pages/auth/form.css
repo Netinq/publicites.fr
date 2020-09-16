@@ -180,3 +180,7 @@ body .content #box form #create a
 {
     color: #43757D;
 }
+
+body .content #box form .password-lost {
+    color:#43757D;
+}

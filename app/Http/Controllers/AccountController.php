@@ -56,14 +56,24 @@ class AccountController extends Controller
         return view('', compact('account'));
     }
 
-    public function edit(account $account)
+    public function edit($id)
     {
-        $account = Account::where('user_id', Auth::id())->first();
-        return view('', compact('account'));
+        $account = Account::where('user_id', $id)->first();
+        if ($account->id != Auth::id())
+        {
+            return redirect()->route('user.index')->with('error', ['Vous n\'avez pas la permission', '']);
+        }
+        return view('account.edit', compact('account'));
     }
 
     public function update(Request $request, account $account)
     {
+        $account = Account::where('user_id', $account)->first();
+        if ($account->id != Auth::id())
+        {
+            return redirect()->route('user.index')->with('error', ['Vous n\'avez pas la permission', '']);
+        }
+
         $this->validate($request,[
             'surname' => 'required|max:35|string',
             'firstname' => 'required|max:50|string',
@@ -73,7 +83,6 @@ class AccountController extends Controller
             'country' => 'required|max:100|string',
         ]);
 
-        $account = Account::where('user_id', Auth::id())->first();
         if ($account->surname != request('surname')) $account->surname = request('surname');
         if ($account->firstname != request('firstname')) $account->firstname = request('firstname');
         if ($account->adress != request('adress')) $account->adress = request('adress');

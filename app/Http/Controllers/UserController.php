@@ -10,6 +10,8 @@ use App\Administrator;
 use App\Annonce;
 use Illuminate\Support\Facades\Auth;
 use App\Config;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -148,12 +150,13 @@ class UserController extends Controller
         else $needpay = false;
         $account = Account::where('user_id', Auth::id())->first();
         $user = User::where('id', Auth::id())->first();
-
+        
         if ($admin)
         {
+            $email = Config::where('name', 'email')->first();           
             $price = Config::where('name', 'price')->first();
             $fb_link = Config::where('name', 'fb_link')->first();
-            return view('user.index', compact('account', 'user', 'admin', 'needpay', 'price', 'fb_link'));
+            return view('user.index', compact('account', 'user', 'admin', 'needpay', 'price', 'fb_link', 'email'));
         } else return view('user.index', compact('account', 'user', 'admin', 'needpay'));
     }
 
@@ -228,5 +231,52 @@ class UserController extends Controller
         $email = $user->email;
         $user->delete();
         return redirect()->route('user.index')->with('success', ['Le compte '.$email.' à été supprimé !', '']);
+    }
+
+    public function passwordEdit($id) {
+        
+        $account = Account::where('user_id', $id)->first();
+        if ($account->id != Auth::id())
+        {
+            return redirect()->route('user.index')->with('error', ['Vous n\'avez pas la permission', '']);
+        }
+        return view('account.password', compact('account'));
+    }
+
+    public function passwordChange(Request $request, $id)
+    {
+        $user = User::where('id', $id)->first();
+
+        $this->validate($request,[
+            'oldpassword' => 'required|string',
+            'password' => 'required|string|confirmed',
+        ]);
+
+        if(Hash::check(request('oldpassword'), $user->password))
+        {
+            $user->password = Hash::make(request('password'));
+            $user->save();
+            return redirect()->route('user.index')->with('success', ['Votre profil à été mis à jour !', 'La/Les modification(s) ont été enregistrée(s) sur votre profil.']);;
+        } else {
+            return redirect(route('passwordEdit', [$id]))
+            ->withErrors(['oldpassword'=>'Mot de passe invalide'])
+            ->withInput();
+        }
+
+    }
+
+    public function passwordReset($id)
+    {
+        $user = User::find($id);
+        if (!Administrator::where('user_id', Auth::id())->exists() && $id != Auth::id())
+        {
+            return redirect()->route('user.index')->with('error', ['Vous n\'avez pas la permission', '']);
+        }
+
+        $newpassword = Str::random(8);
+        $user->password = Hash::make($newpassword);
+        $user->save();
+
+        return redirect()->route('user.index')->with('error', ['Vous avez réinitialisé le mot de passe de '.$user->email, 'Voici sont nouveau mot de passe : '.$newpassword]);
     }
 }
