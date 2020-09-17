@@ -157,10 +157,16 @@ body #content #text #find-text #ping
 
 body #content #text #find-text span
 {
-    display: inline;
+    display: inline-block;
     color: #B3D7DC;
     font-size: 1.5rem;
     line-height: 1;
+}
+
+body #content #text #find-text .desc
+{
+    margin-top: 10px;
+    font-size: 1rem;
 }
 
 body #content #text #find-text span b
@@ -188,12 +194,18 @@ body #content #text #find-text span b
         font-size: 1.2rem;
     }
 
+    body #content #text #find-text .desc
+    {
+        font-size: 1rem;
+    }
+}
+
 @media screen and (max-width: 1200px)
 {
     body #content #text #find-text h1{font-size: 2rem;}
     body #content #text #find-text h2{font-size: 1.5rem;}
     body #content #text #find-text span{ font-size: 1.1rem; }
-    body #content #text #find-text span i{font-size: .9rem;}
+    body #content #text #find-text .desc { font-size: .9rem; }
 }
 
 @media screen and (max-width: 992px)
@@ -202,6 +214,7 @@ body #content #text #find-text span b
     body #content #text #find-text h2{font-size: 1.1rem;}
     body #content #text #find-text span{ font-size: 1rem; }
     body #content #text #find-text span i{font-size: .8rem;}
+    body #content #text #find-text .desc { font-size: .6rem; }
 }
 
 @media screen and (max-width: 767px)
@@ -226,6 +239,7 @@ body #content #text #find-text span b
     body #content #text #find-text h2{font-size: 1.2rem;}
     body #content #text #find-text span{ font-size: 1.1rem; }
     body #content #text #find-text span i{font-size: .9rem;}
+    body #content #text #find-text .desc { font-size: .7rem; }
 }
 
 body #content #facebook
