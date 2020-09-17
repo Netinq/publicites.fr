@@ -6,6 +6,7 @@ use App\Departement;
 use Illuminate\Http\Request;
 use App\Annonce;
 use App\Region;
+use App\Config;
 
 class DepartementController extends Controller
 {
