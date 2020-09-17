@@ -27,7 +27,7 @@ class UserController extends Controller
     {
         if(Administrator::where('user_id', Auth::id())->exists()) $admin = true;
         else $admin = false;
-        if(Annonce::where('pay', false)->exists()) $needpay = true;
+        if(Annonce::where('pay', false)->where('user_id', Auth::id())->exists()) $needpay = true;
         else $needpay = false;
         $annonces = Annonce::where('user_id', Auth::id())->get();
         foreach ($annonces as $ac) {
@@ -44,7 +44,7 @@ class UserController extends Controller
         else $admin = false;
         if($admin && Administrator::where('user_id', Auth::id())->first()->superuser) $superuser = true;
         else $superuser = false;
-        if(Annonce::where('pay', false)->exists()) $needpay = true;
+        if(Annonce::where('pay', false)->where('user_id', Auth::id())->exists()) $needpay = true;
         else $needpay = false;
         $users = User::all();
         foreach ($users as $user) {
@@ -62,7 +62,7 @@ class UserController extends Controller
         $fb_link = Config::where('name', 'fb_link')->first();
         if(Administrator::where('user_id', Auth::id())->exists()) $admin = true;
         else $admin = false;
-        if(Annonce::where('pay', false)->exists()) $needpay = true;
+        if(Annonce::where('pay', false)->where('user_id', Auth::id())->exists()) $needpay = true;
         else $needpay = false;
         $args = request('search');
         $users = User::where('email', 'LIKE', '%'.$args.'%')->get();
@@ -78,7 +78,7 @@ class UserController extends Controller
         $fb_link = Config::where('name', 'fb_link')->first();
         if(Administrator::where('user_id', Auth::id())->exists()) $admin = true;
         else $admin = false;
-        if(Annonce::where('pay', false)->exists()) $needpay = true;
+        if(Annonce::where('pay', false)->where('user_id', Auth::id())->exists()) $needpay = true;
         else $needpay = false;
         $annonces = Annonce::all();
         foreach ($annonces as $ac) {
@@ -146,7 +146,7 @@ class UserController extends Controller
     {
         if(Administrator::where('user_id', Auth::id())->exists()) $admin = true;
         else $admin = false;
-        if(Annonce::where('pay', false)->exists()) $needpay = true;
+        if(Annonce::where('pay', false)->where('user_id', Auth::id())->exists()) $needpay = true;
         else $needpay = false;
         $account = Account::where('user_id', Auth::id())->first();
         $user = User::where('id', Auth::id())->first();

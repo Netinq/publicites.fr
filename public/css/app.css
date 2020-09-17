@@ -102,7 +102,6 @@ p {
 
 abbr[title],
 abbr[data-original-title] {
-  text-decoration: underline;
   -webkit-text-decoration: underline dotted;
           text-decoration: underline dotted;
   cursor: help;
@@ -177,7 +176,6 @@ a {
 
 a:hover {
   color: #1d68a7;
-  text-decoration: underline;
 }
 
 a:not([href]) {
@@ -3328,12 +3326,10 @@ fieldset:disabled a.btn {
 
 .btn-link:hover {
   color: #1d68a7;
-  text-decoration: underline;
 }
 
 .btn-link:focus,
 .btn-link.focus {
-  text-decoration: underline;
 }
 
 .btn-link:disabled,
@@ -5229,7 +5225,6 @@ input[type=button].btn-block {
 }
 
 .breadcrumb-item + .breadcrumb-item:hover::before {
-  text-decoration: underline;
 }
 
 .breadcrumb-item + .breadcrumb-item:hover::before {
@@ -10839,7 +10834,7 @@ a.text-dark:focus {
   }
 
   a:not(.btn) {
-    text-decoration: underline;
+
   }
 
   abbr[title]::after {

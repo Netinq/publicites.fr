@@ -982,8 +982,8 @@
         <div id="find-text">
             <h1>Trouvez les annonceurs</h1>
             <h2 class="d-none d-sm-block">proches de chez vous</h2>
-            <span>Communiquez à vie sur frfr.fr <b>pour {{$price->integer}}€</b></span>
-            <span class="desc">Description et images modifiables à volonté</b></span>
+            <span>Communiquez à vie sur FRFR.fr <b>pour {{$price->integer}}€</b></span>
+            <span class="desc">Description et image modifiable à volonté</b></span>
         </div>
         <div class="btn-content row">
             <a href="{{$fb_link->string}}" class="d-none d-md-block offset-3 col-6" target="_blank">
