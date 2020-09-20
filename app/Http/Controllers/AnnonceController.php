@@ -269,9 +269,9 @@ class AnnonceController extends Controller
 
         $this->validate($request,[
             'title' => 'max:30|string',
-            'description' => 'string|max:155',
+            'description' => 'string|max:300',
             'link' => 'url',
-            'image' => 'mimes:jpeg,jpg,png|max:1024'
+            'image' => 'mimes:jpeg,jpg,png|max:3072'
         ]);
         if (request('image') != null)
         {

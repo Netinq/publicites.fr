@@ -30,7 +30,7 @@
                     </div>
                     <div class="col-10 col-md-8">
                         <label for="description" class="col-form-label">Description de votre annonce</label>
-                        <textarea id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" autocomplete="current-description" maxlength="150">{{ old('description') == null ? $ac->description : old('description')}}</textarea>
+                        <textarea id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" autocomplete="current-description" maxlength="300">{{ old('description') == null ? $ac->description : old('description')}}</textarea>
                         @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
