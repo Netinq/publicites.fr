@@ -66,10 +66,10 @@ class AccountController extends Controller
         return view('account.edit', compact('account'));
     }
 
-    public function update(Request $request, account $account)
+    public function update(Request $request, $id)
     {
-        $account = Account::where('user_id', $account)->first();
-        if ($account->id != Auth::id())
+        $account = Account::where('user_id', $id)->first();
+        if ($id != Auth::id())
         {
             return redirect()->route('user.index')->with('error', ['Vous n\'avez pas la permission', '']);
         }
