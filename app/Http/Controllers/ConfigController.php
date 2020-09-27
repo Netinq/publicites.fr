@@ -31,6 +31,12 @@ class ConfigController extends Controller
             $fb_link->string = request('fb_link');
             $fb_link->save();
         }
+        if (request('email') != null)
+        {
+            $email = Config::where('name', 'email')->first();
+            $email->string = request('email');
+            $email->save();
+        }
         return redirect()->route('user.index')->with('success', ['Configuration mise à jour !', 'Les options de configurations du site ont été mises à jours.']);;
     }
 }
