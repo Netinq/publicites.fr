@@ -90,7 +90,7 @@ class AnnonceController extends Controller
             'departement_id' => 'required',
             'title' => 'required|max:30|string',
             'description' => 'required|string|max:310',
-            'link' => 'required|url',
+            'link' => 'url',
             'image' => 'required|mimes:jpeg,jpg,png|max:3072'
             ]);
             

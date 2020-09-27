@@ -42,7 +42,7 @@
                     </div>
                     <div class="col-10 col-md-8">
                         <label for="link" class="col-form-label">Lien de votre annonce</label>
-                        <input id="link" type="link" class="form-control @error('link') is-invalid @enderror" name="link" required autocomplete="current-link" value="{{ old('link') }}">
+                        <input id="link" type="link" class="form-control @error('link') is-invalid @enderror" name="link" autocomplete="current-link" value="{{ old('link') }}">
                         @error('link')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
