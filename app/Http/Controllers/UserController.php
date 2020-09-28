@@ -52,6 +52,7 @@ class UserController extends Controller
             $account = Account::where('user_id', $user->id)->first();
             if ($account != null) $user->account = $account;
             else {
+                $account = new Account();
                 $account->user_id = $user->id;
                 $account->surname = "undefine";
                 $account->firstname = "undefine";
