@@ -60,6 +60,7 @@ class UserController extends Controller
                 $account->cp = "undefine";
                 $account->city = "undefine";
                 $account->country = "undefine";
+                $user->account = $account;
             }
             $user->admin = Administrator::where('user_id', $user->id)->exists();
             if ($user->admin) $user->superuser = Administrator::where('user_id', $user->id)->first()->superuser;
