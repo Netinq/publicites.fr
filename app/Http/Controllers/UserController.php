@@ -47,9 +47,19 @@ class UserController extends Controller
         if(Annonce::where('pay', false)->where('user_id', Auth::id())->exists()) $needpay = true;
         else $needpay = false;
         $users = User::all();
+
         foreach ($users as $user) {
             $account = Account::where('user_id', $user->id)->first();
-            $user->account = $account;
+            if ($account != null) $user->account = $account;
+            else {
+                $account->user_id = $user->id;
+                $account->surname = "undefine";
+                $account->firstname = "undefine";
+                $account->adress = "undefine";
+                $account->cp = "undefine";
+                $account->city = "undefine";
+                $account->country = "undefine";
+            }
             $user->admin = Administrator::where('user_id', $user->id)->exists();
             if ($user->admin) $user->superuser = Administrator::where('user_id', $user->id)->first()->superuser;
         }
@@ -150,10 +160,10 @@ class UserController extends Controller
         else $needpay = false;
         $account = Account::where('user_id', Auth::id())->first();
         $user = User::where('id', Auth::id())->first();
-        
+
         if ($admin)
         {
-            $email = Config::where('name', 'email')->first();           
+            $email = Config::where('name', 'email')->first();
             $price = Config::where('name', 'price')->first();
             $fb_link = Config::where('name', 'fb_link')->first();
             return view('user.index', compact('account', 'user', 'admin', 'needpay', 'price', 'fb_link', 'email'));
@@ -234,7 +244,7 @@ class UserController extends Controller
     }
 
     public function passwordEdit($id) {
-        
+
         $account = Account::where('user_id', $id)->first();
         if ($account->id != Auth::id())
         {
