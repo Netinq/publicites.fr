@@ -10,6 +10,7 @@ use App\Administrator;
 use App\Annonce;
 use Illuminate\Support\Facades\Auth;
 use App\Config;
+use App\Region;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -162,13 +163,14 @@ class UserController extends Controller
         else $needpay = false;
         $account = Account::where('user_id', Auth::id())->first();
         $user = User::where('id', Auth::id())->first();
+        $regions = Region::orderBy('identifier', 'ASC')->get();
 
         if ($admin)
         {
             $email = Config::where('name', 'email')->first();
             $price = Config::where('name', 'price')->first();
             $fb_link = Config::where('name', 'fb_link')->first();
-            return view('user.index', compact('account', 'user', 'admin', 'needpay', 'price', 'fb_link', 'email'));
+            return view('user.index', compact('account', 'user', 'admin', 'needpay', 'price', 'fb_link', 'email', 'regions'));
         } else return view('user.index', compact('account', 'user', 'admin', 'needpay'));
     }
 

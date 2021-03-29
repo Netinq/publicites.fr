@@ -8,6 +8,11 @@
     background-color: #F9F9F9;
 }
 
+body svg > .unactive path
+{
+    fill: #b9b9b9 !important;
+}
+
 .content .profil-content
 {
     background-color: #ffffff;
@@ -93,10 +98,10 @@
         height: 100vh;
         background-color: #ffffff;
     }
-    
+
 }
 
-form 
+form
 {
     margin-top: 50px;
 }
@@ -186,7 +191,7 @@ form .button
     {
         font-size: .8rem;
     }
-    
+
     form #create
     {
         font-size: .6rem;

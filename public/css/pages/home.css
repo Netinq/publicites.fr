@@ -107,6 +107,12 @@ body #content #regions svg > a path:hover
     cursor: pointer;
 }
 
+body #content #regions svg > .unactive path, body #content #regions svg > .unactive path:hover
+{
+    fill: #b9b9b9 !important;
+    cursor: not-allowed;
+}
+
 body #content #text
 {
     line-height: 120vh;
@@ -329,6 +335,12 @@ svg g g
 svg g:hover > g
 {
     display: block;
+    z-index: 100;
+}
+
+svg .unactive g:hover > g
+{
+    display: none !important;
     z-index: 100;
 }
 

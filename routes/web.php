@@ -19,6 +19,7 @@ Route::get('/become_advertiser', 'HomeController@become_advertiser')
     ->middleware('account_created');
 
 Route::resource('regions', 'RegionController');
+Route::get('regions/update_status/{id}', 'RegionController@update_status')->name('regions.update_status');
 Route::resource('departements', 'DepartementController');
 Route::resource('user', 'UserController');
 Route::resource('account', 'AccountController');

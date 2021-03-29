@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Departement;
 use App\Config;
+use App\Region;
 
 class HomeController extends Controller
 {
@@ -16,7 +17,8 @@ class HomeController extends Controller
     public function index()
     {
         $price = Config::where('name', 'price')->first();
-        return view('home', compact('price'));
+        $regions = Region::orderBy('identifier', 'ASC')->get();
+        return view('home', compact('price', 'regions'));
     }
 
     public function legal()

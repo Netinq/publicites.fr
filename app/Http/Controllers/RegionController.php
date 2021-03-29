@@ -58,6 +58,18 @@ class RegionController extends Controller
         return view('regions.index', compact('departements'));
     }
 
+    public function update_status($region)
+    {
+        $region = Region::where('identifier', $region)->first();
+        if ($region->active) {
+            $region->active = false;
+        } else {
+            $region->active = true;
+        }
+        $region->save();
+        return redirect()->route('user.index');
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
