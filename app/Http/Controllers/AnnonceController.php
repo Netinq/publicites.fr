@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Annonce;
 use App\Departement;
+use App\Region;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
@@ -33,7 +34,7 @@ class AnnonceController extends Controller
     public function __construct()
     {
         $paypal_conf = Config::get('paypal');
-        
+
         $this->middleware('auth');
         $this->middleware('optimizeImages')->only(['store', 'update']);
         $this->_api_context = new ApiContext(new OAuthTokenCredential(
@@ -75,7 +76,11 @@ class AnnonceController extends Controller
 
     public function create($region)
     {
-        $departements = Departement::where('region_id', $region)->orderBy('name')->get();
+        $region = Region::where('identifier', $region)->first();
+        if (!$region->active) {
+            return redirect()->back();
+        }
+        $departements = Departement::where('region_id', $region->identifier)->orderBy('name')->get();
         return view('annonces.create', compact('departements'));
     }
 
@@ -93,7 +98,7 @@ class AnnonceController extends Controller
             'link' => 'url',
             'image' => 'required|mimes:jpeg,jpg,png|max:3072'
             ]);
-            
+
         $image = Image::make(request('image'));
         $image->resize(null, 400, function ($constraint) {
             $constraint->aspectRatio();
@@ -111,51 +116,51 @@ class AnnonceController extends Controller
 
         if(Administrator::where('user_id', Auth::id())->exists()) $admin = true;
         else $admin = false;
-        
+
         if ($admin)
         {
             $annonce = Annonce::where('id', $annonce->id)->first();
             $annonce->pay = true;
             $annonce->save();
-    
+
             return redirect()->route('user.index')->with('success', ['Votre annonce à été publié', 'Vous pouvez dès maintenant y accéder en vous connectant à votre compte via votre \"dashboard\".']);
         }
         else {
             $payer = new Payer();
             $payer->setPaymentMethod('paypal');
-    
+
             $item = new Item();
             $item->setName('Annonce sur publicites.fr')
                 ->setCurrency('EUR')
                 ->setQuantity(1)
                 ->setPrice(\App\Config::where('name', 'price')->first()->integer);
-    
+
             $item_list = new ItemList();
             $item_list->setItems(array($item));
-    
+
             $amount = new Amount();
             $amount->setCurrency('EUR')
                     ->setTotal(\App\Config::where('name', 'price')->first()->integer);
-            
+
             $transaction = new Transaction();
             $transaction->setAmount($amount)
                 ->setItemList($item_list);
-    
+
             $redirect_urls = new RedirectUrls();
             $redirect_urls->setReturnUrl(route('confirm', [$annonce->id]))
                     ->setCancelUrl(route('user.index'));
-    
+
             $payment = new Payment();
             $payment->setIntent('Sale')
                 ->setPayer($payer)
                 ->setRedirectUrls($redirect_urls)
                 ->setTransactions(array($transaction));
             $payment->create($this->_api_context);
-            
+
             foreach ($payment->getLinks() as $link) { if ($link->getRel() == 'approval_url') { $redirect_url = $link->getHref(); break; }}
-            
+
             Session::put('paypal_payment_id', $payment->getId());
-    
+
             if (isset($redirect_url)) {
                 return Redirect::away($redirect_url);
             } else {
@@ -182,7 +187,7 @@ class AnnonceController extends Controller
         $amount = new Amount();
         $amount->setCurrency('EUR')
                 ->setTotal(\App\Config::where('name', 'price')->first()->integer);
-        
+
         $transaction = new Transaction();
         $transaction->setAmount($amount)
             ->setItemList($item_list);
@@ -197,9 +202,9 @@ class AnnonceController extends Controller
             ->setRedirectUrls($redirect_urls)
             ->setTransactions(array($transaction));
         $payment->create($this->_api_context);
-        
+
         foreach ($payment->getLinks() as $link) { if ($link->getRel() == 'approval_url') { $redirect_url = $link->getHref(); break; }}
-        
+
         Session::put('paypal_payment_id', $payment->getId());
 
         if (isset($redirect_url)) {
@@ -219,7 +224,7 @@ class AnnonceController extends Controller
         $execution = new PaymentExecution();
         $execution->setPayerId($request->query('PayerID'));
         $result = $payment->execute($execution, $this->_api_context);
-        
+
         if ($result->getState() != 'approved') return redirect()->route('user.index')->with('error', ['Paiement non éffectué', 'Veuillez tenter de nouveau !']);
 
         $annonce = Annonce::where('id', $id)->first();

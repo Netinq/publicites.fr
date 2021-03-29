@@ -54,7 +54,11 @@ class RegionController extends Controller
      */
     public function show($region)
     {
-        $departements = Departement::where('region_id', $region)->orderBy('name')->get();
+        $region = Region::where('identifier', $region)->first();
+        if (!$region->active) {
+            return redirect()->back();
+        }
+        $departements = Departement::where('region_id', $region->identifier)->orderBy('name')->get();
         return view('regions.index', compact('departements'));
     }
 

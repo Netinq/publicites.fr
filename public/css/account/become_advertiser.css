@@ -8,7 +8,7 @@ body
     body { overflow-x: hidden; overflow-y: scroll; }
 }
 
-body #content 
+body #content
 {
     position: absolute;
     top: 0;
@@ -40,6 +40,11 @@ body #content #regions svg > a path:hover
     fill: #B3D7DC !important;
     transform: scale(1.5) translate(-0.01 0.01);
     cursor: pointer;
+}
+body svg > .unactive path, #content #regions svg > .unactive path:hover
+{
+    fill: #b9b9b9 !important;
+    cursor: not-allowed;
 }
 
 body #content #text
@@ -94,7 +99,7 @@ body #content #text #find-text h2
     {
         font-size: 3.5rem;
     }
-    
+
     body #content #text #find-text h2
     {
         font-size: 2.7rem;
@@ -143,6 +148,11 @@ svg g g
 svg g:hover > g
 {
     display: block;
+    z-index: 100;
+}
+svg .unactive g:hover > g
+{
+    display: none !important;
     z-index: 100;
 }
 

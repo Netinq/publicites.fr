@@ -33,7 +33,7 @@
 	.st5{font-size:15.1097px;}
 	.st6{enable-background:new    ;}
 </style>
-<a href="{{route('annonces.create', ['nouvelle-aquitaine'])}}">
+<a href="{{route('annonces.create', ['nouvelle-aquitaine'])}}" class="{{ $regions[9]->active ? '' : 'unactive'}}">
 	<g>
 		<path id="nouvelle-aquitaine" class="st0" d="M188,339.1l0.4-0.7h0.8l1.5-0.2l0.1-0.6l1-1l1-0.6l0.8-0.3h0.6l0.2,0.3l0.9-0.1
 			l0.5-1l0.6,0.4l0.4-0.5h0.4l-0.1,0.8l-0.3,1.1l-1,1l1,0.5l1,0.2l1.1-0.3l0.3-0.7l1.6,0.6l0.4-0.5l-0.2-0.4l0.7-0.7l0.4,0.4
@@ -141,7 +141,7 @@
 		</g>
 	</g>
 </a>
-<a href="{{route('annonces.create', ['ile-de-france'])}}">
+<a href="{{route('annonces.create', ['ile-de-france'])}}" class="{{ $regions[7]->active ? '' : 'unactive'}}">
 	<g>
 		<path id="ile-de-france" class="st0" d="M320.3,135.9l0.5-0.1l0.7,0.3l0.2,0.6v0.7l-0.5,0.1l-0.3,0.4l0.5,0.6l0.7,0.2v0.8l0.7,0.4
 			l1-0.7l1.2-0.1v0.4l0.5,0.3l0.6-0.3l0.9,0.7l0.5-0.1h0.9l0.6,0.5l2-0.7l0.1,0.4l1.1-0.3l0.6-0.8l0.8,0.5h0.7l0.8-0.8h0.6l0.5-0.5
@@ -182,7 +182,7 @@
 		</g>
 	</g>
 </a>
-<a href="{{route('annonces.create', ['bretagne'])}}">
+<a href="{{route('annonces.create', ['bretagne'])}}" class="{{ $regions[2]->active ? '' : 'unactive'}}">
 	<g>
 		<path id="bretagne" class="st0" d="M167.5,178.9l0.2,0.9l1,0.6l0.3,0.5l-0.3,0.8l0.1,0.5l0.5-0.1l0.6,1l-0.4,0.1v0.6l-0.3,0.7
 			l0.8,0.6l-0.1,0.2l1.7,3.3l1.4-0.1l0.8,0.7l-0.3,0.4l0.9,0.8l1.1-0.1l0.8,0.4l0.7-0.6l1-0.5l-0.2-0.6l0.4-0.6l0.4,0.1l0.5-0.8
@@ -270,7 +270,7 @@
 		</g>
 	</g>
 </a>
-<a href="{{route('annonces.create', ['pays-de-la-loire'])}}">
+<a href="{{route('annonces.create', ['pays-de-la-loire'])}}" class="{{ $regions[11]->active ? '' : 'unactive'}}">
 	<g>
 		<path id="pays-de-la-loire" class="st0" d="M126.1,261.1l0.2-1l0.5-0.3l0.9-0.8l0.3,1.2l0.8,0.3l0.9-0.5l0.6-0.1l0.7,0.7l0.7-0.4
 			l0.5,0.1l0.7-0.4l-0.1-1.4l0.4-0.4l0.4-1.6l0.7,0.4l0.9-0.3l0.2,0.6l-0.4,0.2l1,0.5l0.7-0.4l1-0.8l1-0.2l0.2,0.7l-0.4,0.1l0.5,0.7
@@ -338,7 +338,7 @@
 			</g>
 	</g>
 </a>
-<a href="{{route('annonces.create', ['normandie'])}}">
+<a href="{{route('annonces.create', ['normandie'])}}" class="{{ $regions[8]->active ? '' : 'unactive'}}">
 	<g>
 		<path id="normandie" class="st0" d="M305.1,75.9l0.8,0.5l0.5,0.1l0.4-1l1.5,0.1l0.4,0.5l-0.1,0.5v1.3l0.7,0.2l0.4,0.6l1.8,1.1
 			L312,81l0.9,0.5l0.5,0.6l0.7,0.3l0.2,0.8l0.4,0.2l0.4,0.8l0.9,0.6l0.4,0.4h0.5l1.7,0.9l0.7,0.7l0.1,0.6l0.4,0.7l0.6,0.2l0.3,0.4
@@ -400,7 +400,7 @@
 		</g>
 	</g>
 </a>
-<a href="{{route('annonces.create', ['occitanie'])}}">
+<a href="{{route('annonces.create', ['occitanie'])}}" class="{{ $regions[10]->active ? '' : 'unactive'}}">
 	<g>
 		<path id="occitanie" class="st0" d="M337,427.7l0.4,0.9l0.5,0.6l-0.2,0.8l0.1,0.5l1.1,1l0.2,0.5l-0.2,0.4l-0.7,0.2l-0.1,1.1
 			l1.6,2.5l0.5,0.2v0.5l0.4,0.7l0.9,0.7l0.5,0.2v0.9l0.3,0.6l-0.1,0.8l-0.3,0.5l-0.7,0.3l0.3,1l-0.3,1.8l-0.8,0.9l-0.1,0.7l0.4,0.4
@@ -486,7 +486,7 @@
 		</g>
 	</g>
 </a>
-<a href="{{route('annonces.create', ['corse'])}}">
+<a href="{{route('annonces.create', ['corse'])}}" class="{{ $regions[4]->active ? '' : 'unactive'}}">
 	<g>
 		<path id="corse" class="st0" d="M595,584.8l1.1,0.1l1.1-0.3l3-1.4l0.4,0.3l1.1-0.5l2.7-0.4l0.3-1.2l-0.8-1.1l-1.1-1.1l-1.1,0.1
 			l-1-0.4l-0.3-0.7l-1.4,0.5l-0.4-1.1l1.9-1.1v-0.7l-0.7-0.8l-1.6-0.4l-1.1,1.2l-0.8,0.4l-0.4-3.1l1.1,0.1l0.3-0.8l2-0.5l-0.3-1.2
@@ -521,7 +521,7 @@
 		</g>
 	</g>
 </a>
-<a href="{{route('annonces.create', ['grand-est'])}}">
+<a href="{{route('annonces.create', ['grand-est'])}}" class="{{ $regions[5]->active ? '' : 'unactive'}}">
 	<g>
 		<path id="grand-est" class="st0" d="M403.3,163l-0.1-1l0.9-0.4l0.4-1.3l0.9-1.6l1.4-0.3l0.5,0.1l0.2-1.7l0.7-0.4h0.6v-0.7
 			l-0.5-0.5l0.5-0.4h0.9l0.3-1.1l-0.1-0.1l0.8-1.5l1.2-0.1l0.5-0.4v-0.7l-0.5-1.1l-0.6-0.4l-1,0.2l-0.7,0.4h-1.3l-0.1-0.4l0.2-1.5
@@ -604,7 +604,7 @@
 		</g>
 	</g>
 </a>
-<a href="{{route('annonces.create', ['hauts-de-france'])}}">
+<a href="{{route('annonces.create', ['hauts-de-france'])}}" class="{{ $regions[6]->active ? '' : 'unactive'}}">
 	<g>
 		<path id="hauts-de-france" class="st0" d="M305.1,75.9l0.6-0.7l1.8-1.3l1.1-1.2l1.4-4.5l0.8-1.5l0.8-1l0.6-0.4l0.7-0.2l0.7,0.1
 			l0.3,1l1.3,1l0.9-0.5l0.7,0.1l0.8,0.3l0.4,0.6l0.4,0.2l0.8-0.1l0.5-0.9l-0.5-0.4l0.5-0.4l-0.5-0.7l-1.5-0.6l-1,0.3l-0.5-0.6
@@ -664,7 +664,7 @@
 		</g>
 	</g>
 </a>
-<a href="{{route('annonces.create', ['provence-alpes-cote-d-azur'])}}">
+<a href="{{route('annonces.create', ['provence-alpes-cote-d-azur'])}}" class="{{ $regions[12]->active ? '' : 'unactive'}}">
 	<g>
 		<path id="provence-alpes-cote-d-azur" class="st0" d="M438.1,526.4v-1.2l0.4-1.3l0.9-0.6h0.6l1.1-0.4l0.7-0.7h0.4v-1.1l0.7,0.4
 			l0.8-0.7l0.9-0.1l0.6-0.3l0.2-0.5l0.7,0.2l0.4-0.2l0.2-0.6l-0.5-0.1l1.1-0.8l0.8,0.2l0.7-0.4l0.7-1.2l-0.3-0.5l-0.7,0.2h-0.7
@@ -735,7 +735,7 @@
 		</g>
 	</g>
 </a>
-<a href="{{route('annonces.create', ['centre-val-de-loire'])}}">
+<a href="{{route('annonces.create', ['centre-val-de-loire'])}}" class="{{ $regions[3]->active ? '' : 'unactive'}}">
 	<g>
 		<path id="centre-val-de-loire" class="st0" d="M278,209.2l0.5-0.2l-0.1-0.6l1.1-0.6l-0.6-1.1l-0.7-1v-0.4l-0.6-0.7l-0.1-0.7l0.4-1
 			v-0.5l-0.7-0.7l-1.1,0.3l0.6-1v-0.6l0.7-0.8l0.1-0.5l1.5-0.6l0.4,0.4l1.7-0.6l0.2-0.3h0.6l0.9-1.3l0.4,0.3l0.8-0.9l0.1-0.5
@@ -800,7 +800,7 @@
 		</g>
 	</g>
 </a>
-<a href="{{route('annonces.create', ['auvergne-rhone-alpes'])}}">
+<a href="{{route('annonces.create', ['auvergne-rhone-alpes'])}}" class="{{ $regions[0]->active ? '' : 'unactive'}}">
 	<g>
 		<path id="auvergne-rhone-alpes" class="st0" d="M337,427.7l0.5-0.1l0.8-0.5l0.7,0.3l0.3-0.3h0.9l0.3-0.9v-0.6l-0.6-0.3l-0.5-0.6
 			l-0.4-1.5l-0.4-0.2l-0.2-0.6l0.4-0.7l1.1-0.6l0.2-0.4l0.6-0.2h1l0.4-0.1l0.3-0.6l0.2-1.6l-0.3-1.1l0.7,0.1l0.7-0.6l0.4-1l0.6-0.2
@@ -903,7 +903,7 @@
 		</g>
 	</g>
 </a>
-<a href="{{route('annonces.create', ['bourgogne-franche-comte'])}}">
+<a href="{{route('annonces.create', ['bourgogne-franche-comte'])}}" class="{{ $regions[1]->active ? '' : 'unactive'}}">
 	<g>
 		<path id="bourgogne-franche-comte" class="st0" d="M377.8,211.4l-0.1-0.7l0.3-0.7l0.7-0.7l0.7-0.1l0.1-0.8l0.7-0.3l0.7,0.2
 			l0.1-0.6l0.8-1.1l-0.2-0.3l0.6-1h0.7l-0.2-0.9l0.1-0.7l-0.9-0.3l0.2-0.7l-0.5-0.6l0.4-0.4l-0.6-0.4l1.3-1.8l-0.3-0.7l0.4-1.1

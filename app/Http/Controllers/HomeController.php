@@ -42,7 +42,8 @@ class HomeController extends Controller
 
     public function become_advertiser()
     {
+        $regions = Region::orderBy('identifier', 'ASC')->get();
         $fb_link = Config::where('name', 'fb_link')->first();
-        return view('account.become_advertiser', compact('fb_link'));
+        return view('account.become_advertiser', compact('fb_link', 'regions'));
     }
 }
